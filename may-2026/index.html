@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Speak · May 2026 Creative Recap</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; background: #F4F4F2; color: #1A1A1A; padding: 40px 24px; }
+  .page { max-width: 960px; margin: 0 auto; }
+  .doc-header { margin-bottom: 32px; }
+  .doc-title { font-size: 13px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: #1B5EDB; margin-bottom: 6px; }
+  .doc-meta { font-size: 12px; color: #888; }
+  .slide { background: #fff; border: 1px solid #E8E8E6; border-radius: 10px; padding: 40px 44px; margin-bottom: 16px; }
+  .tag { font-size: 11px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: #1B5EDB; display: flex; align-items: center; gap: 6px; margin-bottom: 14px; }
+  .tag-dot { width: 8px; height: 8px; background: #1B5EDB; border-radius: 1px; flex-shrink: 0; }
+  .headline { font-size: 22px; font-weight: 500; color: #111; line-height: 1.3; margin-bottom: 10px; }
+  .subhead { font-size: 13px; color: #666; line-height: 1.6; margin-bottom: 24px; }
+  .metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin-bottom: 32px; }
+  .b-spark { background: #F5F0FF; color: #5533AA; }
+  .metric { background: #F7F7F5; border-radius: 8px; padding: 14px 16px; }
+  .metric-val { font-size: 26px; font-weight: 500; color: #111; line-height: 1; }
+  .metric-lbl { font-size: 12px; color: #555; margin-top: 4px; }
+  .metric-sub { font-size: 11px; color: #999; margin-top: 2px; }
+  .metric-val.green { color: #1B6B1B; }
+  .metric-val.red { color: #993300; }
+  .section-lbl { font-size: 11px; font-weight: 500; color: #888; letter-spacing: .05em; text-transform: uppercase; margin-bottom: 10px; margin-top: 24px; }
+  .mix-bar-wrap { display: flex; height: 28px; border-radius: 4px; overflow: hidden; width: 100%; margin-bottom: 8px; }
+  .mix-seg { height: 100%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 500; color: #fff; }
+  .mix-legend { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
+  .mix-leg-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: #666; }
+  .mix-leg-swatch { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
+  table.ct { width: 100%; border-collapse: collapse; font-size: 12px; }
+  table.ct th { font-size: 11px; font-weight: 500; color: #888; text-align: left; padding: 6px 8px 6px 0; border-bottom: 1px solid #EBEBEB; letter-spacing: .04em; text-transform: uppercase; }
+  table.ct td { padding: 7px 8px 7px 0; border-bottom: 1px solid #EBEBEB; vertical-align: top; color: #1A1A1A; }
+  table.ct tr:last-child td { border-bottom: none; }
+  table.ct tr.sr td { padding: 10px 0 4px; font-size: 10px; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; color: #888; border-bottom: 1px solid #EBEBEB; }
+  .badge { display: inline-block; font-size: 10px; font-weight: 500; padding: 2px 7px; border-radius: 3px; white-space: nowrap; }
+  .b-win  { background: #E8F4E8; color: #1B6B1B; }
+  .b-p1w  { background: #EEF4FF; color: #1B5EDB; }
+  .b-ok   { background: #FFF8E0; color: #8A5F00; }
+  .b-sfail{ background: #F5F0E8; color: #7A5000; }
+  .b-fail { background: #F0F0F0; color: #555; }
+  .b-efail{ background: #EBEBEB; color: #666; }
+  .b-limbo{ background: #F5F0FF; color: #5533AA; }
+  .b-prog { background: #E6F0FB; color: #1045A0; }
+  .b-ne   { background: #F4F4F2; color: #AAA; border: 1px solid #E0E0DC; }
+  .b-iter { background: #E8F4E8; color: #1B6B1B; }
+  .b-deriv{ background: #E6F0FB; color: #1045A0; }
+  .b-cast { background: #FFF8E0; color: #8A5F00; }
+  .b-recut{ background: #F0F0F0; color: #555; }
+  .b-new  { background: #FEF0E8; color: #993300; }
+  .b-p2p  { background: #E8F4E8; color: #1B6B1B; font-size: 9px; }
+  .b-fld  { background: #F4F4F2; color: #888; font-size: 9px; border: 1px solid #E0E0DC; }
+  .cid  { font-size: 11px; color: #999; font-family: "SF Mono","Fira Mono",monospace; }
+  .src  { font-size: 11px; color: #666; }
+  .note { font-size: 11px; color: #999; margin-top: 8px; line-height: 1.5; }
+  .callout { background: #FFF8E0; border-left: 3px solid #D4A017; border-radius: 4px; padding: 10px 14px; margin-bottom: 20px; font-size: 12px; color: #5C3D00; line-height: 1.5; }
+  .callout-blue { background: #EEF4FF; border-left: 3px solid #1B5EDB; border-radius: 4px; padding: 10px 14px; margin-bottom: 14px; font-size: 12px; color: #0A2E6E; line-height: 1.5; }
+  hr.div { border: none; border-top: 1px solid #EBEBEB; margin: 20px 0; }
+  .flags { display: flex; gap: 10px; margin-top: 12px; flex-wrap: wrap; }
+  .flag-card { border: 1px solid #E8E8E6; border-radius: 8px; padding: 14px 16px; flex: 1; min-width: 240px; }
+  .flag-head { font-size: 12px; font-weight: 500; color: #111; margin-bottom: 4px; }
+  .flag-body { font-size: 11px; color: #666; line-height: 1.5; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; }
+  .stat-row { display: flex; justify-content: space-between; font-size: 12px; padding: 5px 0; border-bottom: 1px solid #F0F0EE; }
+  .stat-row:last-child { border-bottom: none; }
+  .stat-lbl { color: #555; }
+  .stat-val { font-weight: 500; color: #111; }
+  .stat-val.green { color: #1B6B1B; }
+  .stat-val.red { color: #993300; }
+  .week-header { font-size: 13px; font-weight: 500; color: #111; margin-bottom: 4px; }
+  .week-sub { font-size: 11px; color: #888; margin-bottom: 16px; }
+  .ne-list { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+  .ne-chip { font-size: 11px; font-family: "SF Mono","Fira Mono",monospace; background: #F4F4F2; border: 1px solid #E0E0DC; border-radius: 4px; padding: 2px 8px; color: #888; }
+  .winner-strip { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin: 16px 0; }
+  .winner-card { border: 1.5px solid #C8E6C8; border-radius: 8px; padding: 14px 16px; background: #F6FBF6; }
+  .winner-card .wc-id { font-size: 11px; font-family: "SF Mono","Fira Mono",monospace; color: #888; margin-bottom: 4px; }
+  .winner-card .wc-name { font-size: 12px; font-weight: 500; color: #111; margin-bottom: 8px; line-height: 1.4; }
+  .winner-card .wc-metric { font-size: 22px; font-weight: 500; color: #1B6B1B; }
+  .winner-card .wc-metric-lbl { font-size: 11px; color: #555; }
+  .winner-card .wc-meta { font-size: 11px; color: #666; margin-top: 6px; line-height: 1.5; }
+  .p1w-strip { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin: 16px 0; }
+  .p1w-card { border: 1.5px solid #BED4F8; border-radius: 8px; padding: 14px 16px; background: #F4F8FF; }
+  .p1w-card .wc-id { font-size: 11px; font-family: "SF Mono","Fira Mono",monospace; color: #888; margin-bottom: 4px; }
+  .p1w-card .wc-name { font-size: 12px; font-weight: 500; color: #111; margin-bottom: 8px; line-height: 1.4; }
+  .p1w-card .wc-metric { font-size: 22px; font-weight: 500; color: #1B5EDB; }
+  .p1w-card .wc-metric-lbl { font-size: 11px; color: #555; }
+  .p1w-card .wc-meta { font-size: 11px; color: #666; margin-top: 6px; line-height: 1.5; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="doc-header">
+    <div class="doc-title">Speak x Cousin Labs -- Meta Paid</div>
+    <div class="doc-meta">May 2026 creative recap · Internal · Last updated: June 11, 2026</div>
+  </div>
+
+  <!-- SLIDE 1: OVERVIEW -->
+  <div class="slide">
+    <div class="tag"><span class="tag-dot"></span>May 2026 -- Meta paid creative recap</div>
+    <div class="headline">84 assets · 5 delivery weeks · 3 P2 scaling winners · first month running iterative / derivative / recut formula</div>
+
+    <div class="metrics">
+      <div class="metric"><div class="metric-val">84</div><div class="metric-lbl">Assets delivered</div><div class="metric-sub">5 weeks · May 1–29</div></div>
+      <div class="metric"><div class="metric-val green">3</div><div class="metric-lbl">P2 scaling winners</div><div class="metric-sub">Ryanne · Sofi · Aydreon</div></div>
+      <div class="metric"><div class="metric-val">4</div><div class="metric-lbl">P1 winners → P2</div><div class="metric-sub">CL-5-940 · 943 · 904 · 901</div></div>
+      <div class="metric"><div class="metric-val">36%</div><div class="metric-lbl">May P1 win rate</div><div class="metric-sub">30 of 84 assessed</div></div>
+      <div class="metric"><div class="metric-val">4%</div><div class="metric-lbl">May P2 win rate</div><div class="metric-sub">3 of 84 assessed</div></div>
+      <div class="metric"><div class="metric-val green">8</div><div class="metric-lbl">Scaled BAU</div><div class="metric-sub">794 · 795 · 780 · 788 · 809 · 811×2 · 880</div></div>
+      <div class="metric"><div class="metric-val">13</div><div class="metric-lbl">Creators</div><div class="metric-sub">Aydreon · Sofi lead volume</div></div>
+    </div>
+
+    <div class="section-lbl">May concept mix</div>
+    <div class="mix-bar-wrap">
+      <div class="mix-seg" style="width:31%;background:#1B6B1B">31% Recut</div>
+      <div class="mix-seg" style="width:31%;background:#1045A0">31% Iter</div>
+      <div class="mix-seg" style="width:20%;background:#993300">20% New Bet</div>
+      <div class="mix-seg" style="width:14%;background:#8A5F00">14% Deriv</div>
+      <div class="mix-seg" style="width:4%;background:#bbb;color:#555">4%</div>
+    </div>
+    <div class="mix-legend">
+      <span class="mix-leg-item"><span class="mix-leg-swatch" style="background:#1B6B1B"></span>Recut (29)</span>
+      <span class="mix-leg-item"><span class="mix-leg-swatch" style="background:#1045A0"></span>Iterative (26)</span>
+      <span class="mix-leg-item"><span class="mix-leg-swatch" style="background:#993300"></span>New Bet (17)</span>
+      <span class="mix-leg-item"><span class="mix-leg-swatch" style="background:#8A5F00"></span>Derivative (12)</span>
+      <span class="mix-leg-item"><span class="mix-leg-swatch" style="background:#bbb"></span>AI / TBD</span>
+    </div>
+    <p class="note">Recut and Iterative shared the slate roughly equally — first month stress-testing whether the formula holds across 5 consecutive weeks of delivery.</p>
+
+    <hr class="div">
+    <div class="section-lbl">Format distribution</div>
+    <div class="two-col">
+      <div>
+        <div class="stat-row"><span class="stat-lbl">IRL Spanish Demo</span><span class="stat-val">24</span></div>
+        <div class="stat-row"><span class="stat-lbl">Listicle</span><span class="stat-val">13</span></div>
+        <div class="stat-row"><span class="stat-lbl">Word Wall</span><span class="stat-val">9</span></div>
+        <div class="stat-row"><span class="stat-lbl">Viral Trend / Passing phone</span><span class="stat-val">6</span></div>
+        <div class="stat-row"><span class="stat-lbl">Unhinged Scenario / Chisme</span><span class="stat-val">5</span></div>
+      </div>
+      <div>
+        <div class="stat-row"><span class="stat-lbl">Whiteboard Explainer</span><span class="stat-val">4</span></div>
+        <div class="stat-row"><span class="stat-lbl">FaceTime</span><span class="stat-val">4 + recuts</span></div>
+        <div class="stat-row"><span class="stat-lbl">Car Testimonial</span><span class="stat-val">3</span></div>
+        <div class="stat-row"><span class="stat-lbl">Walk &amp; Talk</span><span class="stat-val">3</span></div>
+        <div class="stat-row"><span class="stat-lbl">App Demo / Meme / Other</span><span class="stat-val">7</span></div>
+      </div>
+    </div>
+
+    <hr class="div">
+    <div class="section-lbl">Win rate by delivery batch</div>
+    <table class="ct">
+      <thead>
+        <tr>
+          <th>Batch</th>
+          <th style="width:56px;text-align:right">Delivered</th>
+          <th style="width:64px;text-align:right">Assessed</th>
+          <th style="width:72px;text-align:right">P1 → P2</th>
+          <th style="width:72px;text-align:right">P1 Pass %</th>
+          <th style="width:56px;text-align:right">P2 Wins</th>
+          <th style="width:88px;text-align:right">Win % (assessed)</th>
+          <th style="width:88px;text-align:right">Win % (delivered)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Week of May 1</td>
+          <td class="src" style="text-align:right">13</td>
+          <td class="src" style="text-align:right">13</td>
+          <td class="src" style="text-align:right">3</td>
+          <td class="src" style="text-align:right">23%</td>
+          <td class="src" style="text-align:right">0</td>
+          <td class="src" style="text-align:right">0%</td>
+          <td class="src" style="text-align:right">0%</td>
+        </tr>
+        <tr>
+          <td>Week of May 8</td>
+          <td class="src" style="text-align:right">27</td>
+          <td class="src" style="text-align:right">27</td>
+          <td class="src" style="text-align:right">13</td>
+          <td class="src" style="text-align:right">48%</td>
+          <td class="src" style="text-align:right">2</td>
+          <td style="text-align:right"><strong style="color:#1B6B1B">7%</strong></td>
+          <td class="src" style="text-align:right">7%</td>
+        </tr>
+        <tr>
+          <td>Week of May 15</td>
+          <td class="src" style="text-align:right">10</td>
+          <td class="src" style="text-align:right">10</td>
+          <td class="src" style="text-align:right">5</td>
+          <td class="src" style="text-align:right">50%</td>
+          <td class="src" style="text-align:right">1</td>
+          <td style="text-align:right"><strong style="color:#1B6B1B">10%</strong></td>
+          <td class="src" style="text-align:right">10%</td>
+        </tr>
+        <tr>
+          <td>Week of May 22</td>
+          <td class="src" style="text-align:right">13</td>
+          <td class="src" style="text-align:right">13</td>
+          <td class="src" style="text-align:right">6 <span style="color:#7755CC;font-size:10px">(+1 limbo)</span></td>
+          <td class="src" style="text-align:right">46%</td>
+          <td class="src" style="text-align:right">0</td>
+          <td class="src" style="text-align:right">0%</td>
+          <td class="src" style="text-align:right">0%</td>
+        </tr>
+        <tr>
+          <td>Week of May 29</td>
+          <td class="src" style="text-align:right">21</td>
+          <td class="src" style="text-align:right">21</td>
+          <td class="src" style="text-align:right">3 <span style="color:#7755CC;font-size:10px">(+4 limbo)</span></td>
+          <td class="src" style="text-align:right">14%</td>
+          <td class="src" style="text-align:right">0 <span style="color:#888;font-size:10px">pending</span></td>
+          <td class="src" style="text-align:right">—</td>
+          <td class="src" style="text-align:right">—</td>
+        </tr>
+        <tr style="background:#F7F7F5;font-weight:500">
+          <td>May Total</td>
+          <td style="text-align:right">84</td>
+          <td style="text-align:right">84</td>
+          <td style="text-align:right">30</td>
+          <td style="text-align:right">36%</td>
+          <td style="text-align:right">3</td>
+          <td style="text-align:right;color:#1B6B1B">4%</td>
+          <td style="text-align:right">4%</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="note">P1 Pass % = P1 winners / all assessed (SP daily v14 — all 84 assets assessed). Win % (assessed) = P2 scaling winners / total delivered. May 29 P2 win rate pending — CL-5-940, CL-5-943, CL-5-944 are P1 winners entering P2.</p>
+
+    <hr class="div">
+    <div class="section-lbl">Product pattern signal — P1 pass rate by ad structure</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px">
+      <div style="background:#F6FBF6;border:1.5px solid #C8E6C8;border-radius:8px;padding:16px 18px">
+        <div style="font-size:11px;font-weight:500;color:#888;text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px">P2-Embedded (product in second act)</div>
+        <div style="font-size:36px;font-weight:500;color:#1B6B1B;line-height:1">96%</div>
+        <div style="font-size:12px;color:#555;margin-top:4px">27 of 28 assets passed P1</div>
+        <div style="font-size:11px;color:#888;margin-top:6px">All 3 P2 scaling winners · all 3 BAU assets · near-perfect P1 graduation rate</div>
+      </div>
+      <div style="background:#F7F7F5;border:1.5px solid #DDDDD8;border-radius:8px;padding:16px 18px">
+        <div style="font-size:11px;font-weight:500;color:#888;text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px">Direct / FLD (product shown early)</div>
+        <div style="font-size:36px;font-weight:500;color:#993300;line-height:1">6%</div>
+        <div style="font-size:12px;color:#555;margin-top:4px">3 of 52 assets passed P1</div>
+        <div style="font-size:11px;color:#888;margin-top:6px">Exceptions: CL-5-794 (Ryanne listicle P2 Win), CL-5-880 (Sofi nail salon P2 Win), CL-5-808 (Sofi → P2)</div>
+      </div>
+    </div>
+    <p class="note">P2-Embedded = product reveal in second act of video (c8 suffix _P2). Direct/FLD = product shown in first act (c8 suffix _FLD). The 5-asset product pattern without either tag are Limbo and excluded. This is the strongest structural signal in May data — the ad structure, not creator or format, is the primary P1 pass predictor. The 3 FLD exceptions are all standout creatives (2 of 3 became P2 winners), suggesting exceptional creative can overcome the structural disadvantage.</p>
+
+    <hr class="div">
+    <div class="section-lbl">May creative bets — retrospective read</div>
+    <ul style="font-size:12px;color:#444;line-height:1.8;padding-left:18px">
+      <li><strong>IRL Spanish Demo is the conversion engine</strong> — all 3 P2 winners are IRL demo format (Ryanne listicle, Sofi nail salon, Aydreon poolside). The format dominates conversion while every other format is still searching for a P2 path.</li>
+      <li><strong>Recuts efficient but ceiling is low</strong> — 29 recuts delivered, only CL-5-788 and CL-5-780 reached Scaling OK; none converted to P2 winner. Recuts are a P1 volume lever, not a P2 engine. CL-5-795 (Sofi ES-start recut) is the exception — it's a structural edit that changes the product pattern, not a trim.</li>
+      <li><strong>Sofi May 8 batch was over-indexed</strong> — 14 assets from Sofi in a single week, mostly chisme and viral trend iterations. No P2 results from that group. The chisme concept has not transferred outside the Uber captive-audience context.</li>
+      <li><strong>Word Wall format failed cleanly</strong> — 9 word wall assets in May 22–29. All P1 fails or early fails. SP scores cluster at 1.3–3.6, well below the 6+ threshold of the P2 winners. Format retirement confirmed.</li>
+      <li><strong>Ryanne listicle is the net-new format find</strong> — CL-5-794 was the highest-ITR P2 winner (CTI 53%, CPFT $26.64). First listicle format to reach scaling winner status. No rationale on hooks in tracker — worth pulling the brief for July iteration.</li>
+      <li><strong>Aydreon poolside Dominican dialect specificity worked</strong> — dialect specificity pre-selects higher-intent viewers. The specificity that narrows hook rate (40.2%) strengthens CTI (26.6% vs 19.3% barside). P1 SP of 6.46 was the second-highest of any May Cousins asset.</li>
+      <li><strong>CL-5-940 (organic pulldown recut) highest SP in May</strong> — SP 7.16, highest P1 score of any Cousins May asset. Source footage was organic; recut for paid. The strongest P1 in May came from footage that wasn't produced under a paid brief — organic-pull content outperformed every scripted asset in the batch.</li>
+    </ul>
+  </div>
+
+  <!-- PARTNERSHIP ADS -->
+  <div class="slide">
+    <div class="tag" style="color:#5533AA"><span class="tag-dot" style="background:#5533AA"></span>Partnership retests — May 2026</div>
+    <div class="headline">3 of 5 PartnershipRetest P1 wins · 1 Hit Ad (PartnershipPage) · P2-Embedded pattern sweeps</div>
+    <div class="subhead">5 PartnershipRetest ads assessed May 15–22. Separate CL ID pools (CL-10-xxx, CL-3-xxx, CL-2-xxx) retested alongside May Cousins batch. Product pattern split holds: all 3 P1 wins are P2-Embedded; both fails are FLD.</div>
+
+    <table class="ct">
+      <thead>
+        <tr>
+          <th style="width:90px">CL ID</th>
+          <th style="width:70px">Creator</th>
+          <th>Concept</th>
+          <th style="width:64px">Pattern</th>
+          <th style="width:72px">Outcome</th>
+          <th style="width:100px">Key metric</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="sr"><td colspan="6">PartnershipRetest batch</td></tr>
+        <tr>
+          <td class="cid">CL-10-471</td><td>Aydreon</td>
+          <td>spanish-on-the-go-20s · travel comparison hook</td>
+          <td><span class="badge b-p2p">P2-Embedded</span></td>
+          <td><span class="badge b-p1w">P1 Win</span></td>
+          <td class="src">SP 2.66 · CPI $7.43</td>
+        </tr>
+        <tr>
+          <td class="cid">CL-3-412</td><td>Lucas</td>
+          <td>how-to-sound-more-native-in-spanish-15s · OrganicContentPulldown</td>
+          <td><span class="badge b-p2p">P2-Embedded</span></td>
+          <td><span class="badge b-p1w">P1 Win</span></td>
+          <td class="src">SP 3.28 · CPI $9.47</td>
+        </tr>
+        <tr>
+          <td class="cid">CL-2-244</td><td>Aydreon</td>
+          <td>what-if-learning-spanish-could-open-doors-to-new-friendships-37s · OrganicContentPulldown</td>
+          <td><span class="badge b-p2p">P2-Embedded</span></td>
+          <td><span class="badge b-p1w">P1 Win</span></td>
+          <td class="src">SP 3.72 · CPI $6.83 · CPFT $29.60 ★</td>
+        </tr>
+        <tr>
+          <td class="cid">CL-10-475</td><td>Aydreon</td>
+          <td>trading-up-duolingo-25s · general comparison</td>
+          <td><span class="badge b-fld">Direct</span></td>
+          <td><span class="badge b-fail">P1 Fail</span></td>
+          <td class="src">SP 3.79 · CPI $14.76</td>
+        </tr>
+        <tr>
+          <td class="cid">CL-5-877</td><td>Aydreon</td>
+          <td>listicle-top-3-tips-get-fluent-fast retest · 26s</td>
+          <td><span class="badge b-fld">Direct</span></td>
+          <td><span class="badge b-fail">P1 Fail</span></td>
+          <td class="src">SP 3.14 · CPI $14.33</td>
+        </tr>
+        <tr class="sr"><td colspan="6">PartnershipPage (Hit Ad — ongoing)</td></tr>
+        <tr>
+          <td class="cid">CL-10-082</td><td>Aydreon</td>
+          <td>POV-make-coffee-become-bilingual-with-this-app-14s · product demo</td>
+          <td><span class="badge b-p2p">P2-Embedded</span></td>
+          <td><span class="badge b-win">Hit Ad</span></td>
+          <td class="src">SP 3.25 · CPI $5.82 · CPFT $26.29</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="note">★ CL-2-244 CPFT $29.60 — below the $35 Cousins P2 win threshold. Pending P2 read at scale; could graduate to scaling winner. CL-10-082 (PartnershipPage) is classified "Hit Ad" — separate from PartnershipRetest pool, running on partnership placements. CPFT $26.29 is the strongest of any partnership asset.</p>
+  </div>
+
+  <!-- SLIDE 2: RESULTS SUMMARY -->
+  <div class="slide">
+    <div class="tag"><span class="tag-dot"></span>Results summary</div>
+    <div class="headline">3 P2 scaling winners · 8 assets in BAU scaled campaign · ~$48k total BAU spend</div>
+
+    <div class="section-lbl">P2 scaling winners</div>
+    <div class="winner-strip">
+      <div class="winner-card">
+        <div class="wc-id">CL-5-794 · cheat-code-fluency-listicle</div>
+        <div class="wc-name">Ryanne — Cheat code to Spanish fluency · Listicle · May 8</div>
+        <div class="wc-metric">$27.93</div><div class="wc-metric-lbl">CPFT (BAU settled · $3.9k spend)</div>
+        <div class="wc-meta">CTI 43.4% · ITR 26.4% · CTR 0.35% · CPM $10.88<br>Batch: $26.64 / 10 trials. BAU held — lowest CPM of any scaled asset. First listicle format to reach BAU.</div>
+      </div>
+      <div class="winner-card">
+        <div class="wc-id">CL-5-880 · nail-salon-perfect-spanish</div>
+        <div class="wc-name">Sofi — Nail salon "nail tech said I speak perfect Spanish" · May 15</div>
+        <div class="wc-metric">$29.06</div><div class="wc-metric-lbl">CPFT (BAU settled · $12.7k spend)</div>
+        <div class="wc-meta">CTI 32.6% · ITR 25.6% · CTR 0.75% · CPM $17.01<br>Batch: $27.45 / 17 trials. BAU held — second-highest BAU spend anchor in May slate.</div>
+      </div>
+      <div class="winner-card">
+        <div class="wc-id">CL-5-811 · poolside-dominican-dialect</div>
+        <div class="wc-name">Aydreon — Poolside Dominican dialect · IRL Demo · May 8</div>
+        <div class="wc-metric">$46–50</div><div class="wc-metric-lbl">CPFT (BAU settled · 2 versions · $6.6k)</div>
+        <div class="wc-meta">CTI 17–18% · ITR 16–18% · SP 6.46 at P1<br>Batch: $28.31 / 12 trials. BAU efficiency declined from batch — settled above soft-fail threshold. Running as 2 versions.</div>
+      </div>
+    </div>
+
+    <div class="section-lbl">BAU scaled campaign — 8 assets · ~$48k total spend</div>
+    <table class="ct">
+      <thead>
+        <tr>
+          <th style="width:76px">CL ID</th>
+          <th style="width:60px">Creator</th>
+          <th>Concept</th>
+          <th style="width:72px;text-align:right">BAU CPFT</th>
+          <th style="width:72px;text-align:right">Spend</th>
+          <th style="width:52px;text-align:right">CTI</th>
+          <th style="width:52px;text-align:right">ITR</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="cid">CL-5-794</td><td>Ryanne</td><td>listicle-cheat-code-to-spanish-fluency-21s</td><td style="text-align:right"><strong style="color:#1B6B1B">$27.93</strong></td><td class="src" style="text-align:right">$3,910</td><td class="src" style="text-align:right">43.4%</td><td class="src" style="text-align:right">26.4%</td></tr>
+        <tr><td class="cid">CL-5-880</td><td>Sofi</td><td>nail-salon-perfect-spanish</td><td style="text-align:right"><strong style="color:#1B6B1B">$29.06</strong></td><td class="src" style="text-align:right">$12,727</td><td class="src" style="text-align:right">32.6%</td><td class="src" style="text-align:right">25.6%</td></tr>
+        <tr><td class="cid">CL-5-795</td><td>Sofi</td><td>uber-driver-es-start-recut-27s</td><td style="text-align:right"><strong>$37.60</strong></td><td class="src" style="text-align:right">$19,513</td><td class="src" style="text-align:right">21.0%</td><td class="src" style="text-align:right">26.1%</td></tr>
+        <tr><td class="cid">CL-5-811 ×2</td><td>Aydreon</td><td>poolside-dominican-dialect</td><td style="text-align:right">$46–50</td><td class="src" style="text-align:right">$6,555</td><td class="src" style="text-align:right">17–18%</td><td class="src" style="text-align:right">16–18%</td></tr>
+        <tr><td class="cid">CL-5-780</td><td>Gio</td><td>whiteboard-top-3-never-dos-recut</td><td style="text-align:right">$48.42</td><td class="src" style="text-align:right">$629</td><td class="src" style="text-align:right">6.9%</td><td class="src" style="text-align:right">41.7%</td></tr>
+        <tr><td class="cid">CL-5-809</td><td>Aydreon</td><td>barside-irl-flex-my-spanish</td><td style="text-align:right" style="color:#993300">$60.76</td><td class="src" style="text-align:right">$3,585</td><td class="src" style="text-align:right">18.4%</td><td class="src" style="text-align:right">25.2%</td></tr>
+        <tr><td class="cid">CL-5-788</td><td>Zig</td><td>in-x-country-they-dont-say-x-mexico-first</td><td style="text-align:right" style="color:#993300">$78.05</td><td class="src" style="text-align:right">$1,093</td><td class="src" style="text-align:right">13.7%</td><td class="src" style="text-align:right">20.3%</td></tr>
+      </tbody>
+    </table>
+    <p class="note">BAU CPFT from live campaign as of June 11 (not batch test). Cousins P2+BAU benchmark: $34.28. 794, 880, 795 are below or at benchmark — primary anchors. 811 settled higher than batch ($28.31 → $46–50) — scale revealed true efficiency. 780 low CTI (6.9%) but high ITR (41.7%) — narrow audience, high intent. 809 and 788 are above soft-fail threshold — monitor for retirement decision.</p>
+
+    <div class="section-lbl">P1 winners → entering P2</div>
+    <div class="p1w-strip" style="grid-template-columns: repeat(4,1fr)">
+      <div class="p1w-card">
+        <div class="wc-id">CL-5-940</div>
+        <div class="wc-name">Aydreon — "He was shook I learned Spanish" organic pulldown recut · May 29</div>
+        <div class="wc-metric">7.16</div><div class="wc-metric-lbl">SP score — highest May P1</div>
+        <div class="wc-meta">CTI 39.6% · CPFT $92.19 · P2 read pending<br>Source footage organic, recut for paid. Highest SP of any Cousins May asset.</div>
+      </div>
+      <div class="p1w-card">
+        <div class="wc-id">CL-5-943</div>
+        <div class="wc-name">Aydreon — "Married a Latina without speaking Spanish" derivative · May 29</div>
+        <div class="wc-metric">5.08</div><div class="wc-metric-lbl">SP score · P2 entering</div>
+        <div class="wc-meta">CTI 36.7% · CPFT $63.94 · relationship hook<br>Derivative combining app demo + testimonial. Highest-potential derivative test in May.</div>
+      </div>
+      <div class="p1w-card">
+        <div class="wc-id">CL-5-904</div>
+        <div class="wc-name">Aydreon — In-laws listicle recut stripped to punchline · May 22</div>
+        <div class="wc-metric">—</div><div class="wc-metric-lbl">CPI $9.50 · P1 win → P2</div>
+        <div class="wc-meta">Hold-25% 22.7% · P1 pass on CPI efficiency<br>Tight 15s punchline cut. P2 data pending.</div>
+      </div>
+      <div class="p1w-card">
+        <div class="wc-id">CL-5-901</div>
+        <div class="wc-name">Sofi — Word wall + nail salon hybrid · May 22</div>
+        <div class="wc-metric">3.03</div><div class="wc-metric-lbl">SP score · P1 winner (rescue flag)</div>
+        <div class="wc-meta">CPFT $53.31 · just above P1 threshold<br>Rescue flag at P1 — passed but thin margin. P2 conversion uncertain.</div>
+      </div>
+    </div>
+
+    <hr class="div">
+    <div class="section-lbl">Also in BAU — batch Scaling OK, settled higher at scale</div>
+    <table class="ct">
+      <thead><tr><th>CL ID</th><th>Creator</th><th>Concept</th><th>Batch CPFT</th><th>BAU CPFT</th><th>BAU Spend</th><th>Note</th></tr></thead>
+      <tbody>
+        <tr><td class="cid">CL-5-795</td><td>Sofi</td><td>uber-driver-es-start-recut-27s</td><td class="src">$41.66</td><td><strong>$37.60</strong></td><td class="src">$19,513</td><td class="src">Largest BAU anchor. Improved slightly from batch — most-tested asset in May slate</td></tr>
+        <tr><td class="cid">CL-5-780</td><td>Gio</td><td>whiteboard-top-3-never-dos-recut</td><td class="src">$39.59</td><td class="src">$48.42</td><td class="src">$629</td><td class="src">High ITR (41.7%) but very low CTI (6.9%) — small high-intent audience, limited scale ceiling</td></tr>
+        <tr><td class="cid">CL-5-809</td><td>Aydreon</td><td>barside-irl-flex-my-spanish</td><td class="src">$46.01</td><td class="src" style="color:#993300">$60.76</td><td class="src">$3,585</td><td class="src">Deteriorated from batch. Above soft-fail threshold — retirement decision needed</td></tr>
+        <tr><td class="cid">CL-5-788</td><td>Zig</td><td>in-x-country-mexico-first-recut</td><td class="src">$42.06</td><td class="src" style="color:#993300">$78.05</td><td class="src">$1,093</td><td class="src">Significant deterioration at scale. Likely winding down</td></tr>
+      </tbody>
+    </table>
+
+    <hr class="div">
+    <div class="section-lbl">Assessment flags — follow-up needed</div>
+    <div class="callout" style="background:#F6FBF6;border-color:#1B6B1B">
+      <strong>All 84 May assets confirmed in SP daily (v14).</strong> 30 P1 winners · 3 P2 scaling winners · 5 limbo · 46 P1 fails. May 29 batch (940, 943, 944) entering P2 — reads pending. CL-5-932 (SP 6.75) is the highest-priority limbo P2 entry decision.
+    </div>
+    <div class="flags">
+      <div class="flag-card">
+        <div class="flag-head">CL-5-932 / CL-5-933 — Limbo (Zig listicles, May 29)</div>
+        <div class="flag-body">932: SP 6.75, CPFT $38.93 — near P1 winner threshold. 933: SP 2.44, CPFT $124.20 — below threshold. 932 is the stronger signal; monitor for P2 entry decision.</div>
+      </div>
+      <div class="flag-card">
+        <div class="flag-head">CL-5-902 — P1 win, P2 collapse</div>
+        <div class="flag-body">Word wall + travel b-roll. P1 CPI $8.60 via CTI 50% (113% better). P2 CPFT collapsed to $134.94 — install→trial fell from 30% to 10.5%. The click-intent audience did not convert to trial. Format retired.</div>
+      </div>
+      <div class="flag-card">
+        <div class="flag-head">CL-5-864 — Sofi nail salon sibling failure</div>
+        <div class="flag-body">Reaction-led 20.1s cut of same shoot as CL-5-795. Passed P1 at $26.93 CPFT then collapsed at P2: CTR jumped 0.74%→3.15%, CTI fell 29.6%→2.44%. Algorithm found entertainment audience it couldn't convert.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 3: WEEK OF MAY 1 -->
+  <div class="slide">
+    <div class="tag" style="color:#8A5F00"><span class="tag-dot" style="background:#8A5F00"></span>Batch — week of May 1</div>
+    <div class="week-header">13 assets · recuts dominant · 2 reach P2 Scaling OK</div>
+    <div style="display:flex;gap:16px;margin-bottom:6px">
+      <span style="font-size:11px;color:#888">Assessed: <strong style="color:#111">13 / 13</strong></span>
+      <span style="font-size:11px;color:#888">P1 pass: <strong style="color:#111">3 / 13 (23%)</strong></span>
+      <span style="font-size:11px;color:#888">P2 wins: <strong style="color:#555">0</strong></span>
+      <span style="font-size:11px;color:#888">Win rate (delivered): <strong style="color:#555">0%</strong></span>
+    </div>
+    <div class="week-sub">First batch of the iterative / derivative / recut formula. Heavy recut volume from prior BAU asset pool.</div>
+
+    <table class="ct">
+      <thead><tr><th style="width:76px">CL ID</th><th style="width:70px">Creator</th><th>Concept</th><th style="width:64px">Type</th><th style="width:72px">Format</th><th style="width:72px">Outcome</th><th style="width:80px">Key metric</th></tr></thead>
+      <tbody>
+        <tr class="sr"><td colspan="7">Gio / Zig / Mariya / Nico / Aydreon recuts</td></tr>
+        <tr><td class="cid">CL-5-780</td><td>Gio</td><td>Whiteboard Top 3 Never Dos — competitive recut</td><td><span class="badge b-recut">Recut</span> <span class="badge b-p2p">P2</span></td><td class="src">Whiteboard</td><td><span class="badge b-ok">Scaling OK</span></td><td class="src">$39.59 CPFT · 28.9% ITR</td></tr>
+        <tr><td class="cid">CL-5-781</td><td>Gio</td><td>Whiteboard — clips tight for pace (shorter)</td><td><span class="badge b-recut">Recut</span> <span class="badge b-p2p">P2</span></td><td class="src">Whiteboard</td><td><span class="badge b-efail">P2 Early Fail</span></td><td class="src">$59.16 CPFT · 23.1% ITR</td></tr>
+        <tr><td class="cid">CL-5-786</td><td>Zig</td><td>"In X country they don't say X" — DR lead</td><td><span class="badge b-recut">Recut</span> <span class="badge b-fld">FLD</span></td><td class="src">Listicle</td><td><span class="badge b-fail">P1 Fail</span></td><td class="src">SP daily confirmed</td></tr>
+        <tr><td class="cid">CL-5-787</td><td>Zig</td><td>"In X country they don't say X" — Spain lead</td><td><span class="badge b-recut">Recut</span> <span class="badge b-fld">FLD</span></td><td class="src">Listicle</td><td><span class="badge b-fail">P1 Fail</span></td><td class="src">SP daily confirmed</td></tr>
+        <tr><td class="cid">CL-5-788</td><td>Zig</td><td>"In X country they don't say X" — Mexico-first</td><td><span class="badge b-recut">Recut</span> <span class="badge b-p2p">P2</span></td><td class="src">Listicle</td><td><span class="badge b-ok">Scaling OK</span></td><td class="src">$42.06 CPFT · 44% ITR</td></tr>
+        <tr><td class="cid">CL-5-782</td><td>Mariya</td><td>Car testimonial recut — "learned something in Spanish"</td><td><span class="badge b-recut">Recut</span> <span class="badge b-fld">FLD</span></td><td class="src">Car testimonial</td><td><span class="badge b-fail">P1 Fail</span></td><td class="src">SP daily confirmed</td></tr>
+        <tr><td class="cid">CL-5-783</td><td>Mariya</td><td>Car testimonial recut — "when I'm telling a story"</td><td><span class="badge b-recut">Recut</span> <span class="badge b-fld">FLD</span></td><td class="src">Car testimonial</td><td><span class="badge b-fail">P1 Fail</span></td><td class="src">SP daily confirmed</td></tr>
+        <tr><td class="cid">CL-5-776</td><td>Nico</td><td>IRL demo recut — Philly / Nicaragua hook</td><td><span class="badge b-recut">Recut</span> <span class="badge b-fld">FLD</span></td><td class="src">IRL demo</td><td><span class="badge b-fail">P1 Fail</span></td><td class="src">SP daily confirmed</td></tr>
+        <tr><td class="cid">CL-5-777</td><td>Nico</td><td>IRL demo recut — "How is your day?" alt hook</td><td><span class="badge b-recut">Recut</span> <span class="badge b-fld">FLD</span></td><td class="src">IRL demo</td><td><span class="badge b-fail">P1 Fail</span></td><td class="src">SP daily confirmed</td></tr>
+        <tr><td class="cid">CL-5-778</td><td>Aydreon</td><td>IRL demo recut — "Spanish is easy"</td><td><span class="badge b-recut">Recut</span> <span class="badge b-fld">FLD</span></td><td class="src">IRL demo</td><td><span class="badge b-fail">P1 Fail</span></td><td class="src">SP daily confirmed</td></tr>
+        <tr><td class="cid">CL-5-779</td><td>Aydreon</td><td>IRL demo recut — "8 months learning Spanish"</td><td><span class="badge b-recut">Recut</span> <span class="badge b-fld">FLD</span></td><td class="src">IRL demo</td><td><span class="badge b-fail">P1 Fail</span></td><td class="src">SP daily confirmed</td></tr>
+        <tr><td class="cid">CL-5-784</td><td>Steph V.</td><td>Before vs After demo recut #1 — "I hate Spanish"</td><td><span class="badge b-recut">Recut</span> <span class="badge b-fld">FLD</span></td><td class="src">Reaction video</td><td><span class="badge b-fail">P1 Fail</span></td><td class="src">SP daily confirmed</td></tr>
+        <tr><td class="cid">CL-5-785</td><td>Steph V.</td><td>Before vs After demo recut #2 — alt cut</td><td><span class="badge b-recut">Recut</span> <span class="badge b-fld">FLD</span></td><td class="src">Reaction video</td><td><span class="badge b-fail">P1 Fail</span></td><td class="src">SP daily confirmed</td></tr>
+      </tbody>
+    </table>
+    <p class="note">All 13 assets confirmed in SP daily v14. 780, 781, 788 passed P1 (all P2-Embedded). All 10 FLD assets failed P1 — consistent with the broader May pattern (FLD 6% P1 pass rate). The 10 FLD fails were likely never killed outright; they ran and failed in P1 testing.</p>
+  </div>
+
+  <!-- SLIDE 4: WEEK OF MAY 8 -->
+  <div class="slide">
+    <div class="tag"><span class="tag-dot"></span>Batch — week of May 8</div>
+    <div class="week-header">27 assets · largest single-week delivery · 3 P2 results including 2 scaling winners</div>
+    <div style="display:flex;gap:16px;margin-bottom:6px">
+      <span style="font-size:11px;color:#888">Assessed: <strong style="color:#111">27 / 27</strong></span>
+      <span style="font-size:11px;color:#888">P1 pass: <strong style="color:#111">13 / 27 (48%)</strong></span>
+      <span style="font-size:11px;color:#888">P2 wins: <strong style="color:#1B6B1B">2</strong></span>
+      <span style="font-size:11px;color:#888">Win rate (delivered): <strong style="color:#1B6B1B">7%</strong></span>
+    </div>
+    <div class="week-sub">Sofi dropped 14 assets in one week — heavy chisme and viral trend iterations. Aydreon and Ryanne delivered the week's wins.</div>
+
+    <table class="ct">
+      <thead><tr><th style="width:76px">CL ID</th><th style="width:70px">Creator</th><th>Concept</th><th style="width:64px">Type</th><th style="width:72px">Format</th><th style="width:72px">Outcome</th><th style="width:80px">Key metric</th></tr></thead>
+      <tbody>
+        <tr class="sr"><td colspan="7">Sofi — uber recuts + chisme iterations + viral formats</td></tr>
+        <tr><td class="cid">CL-5-795</td><td>Sofi</td><td>Uber driver ES-start recut — "de donde eres?" 27s</td><td><span class="badge b-recut">Recut</span> <span class="badge b-p2p">P2</span></td><td class="src">IRL demo</td><td><span class="badge b-ok">Scaling OK</span></td><td class="src">$41.66 CPFT · P1 CPFT $9.28</td></tr>
+        <tr><td class="cid">CL-5-796</td><td>Sofi</td><td>Uber recut — "I got off a flight from SLC"</td><td><span class="badge b-recut">Recut</span> <span class="badge b-p2p">P2</span></td><td class="src">IRL demo</td><td><span class="badge b-p1w">P1 Win → P2</span></td><td class="src">SP 3.25 · CPI $6.47</td></tr>
+        <tr><td class="cid">CL-5-797</td><td>Sofi</td><td>Uber recut — Spanish signal hook edit</td><td><span class="badge b-recut">Recut</span> <span class="badge b-p2p">P2</span></td><td class="src">IRL demo</td><td><span class="badge b-efail">P2 Early Fail</span></td><td class="src">$87.27 CPFT · 10.3% ITR</td></tr>
+        <tr><td class="cid">CL-5-799</td><td>Sofi</td><td>Chisme — "abuela just called out Tia for being a cheater"</td><td><span class="badge b-iter">Iterative</span> <span class="badge b-p2p">P2</span></td><td class="src">Unhinged scenario</td><td><span class="badge b-p1w">P1 Win → P2</span></td><td class="src">SP 3.72 · CPI $5.55</td></tr>
+        <tr><td class="cid">CL-5-800</td><td>Sofi</td><td>Chisme — "understanding things I shouldn't"</td><td><span class="badge b-iter">Iterative</span> <span class="badge b-fld">FLD</span></td><td class="src">Unhinged scenario</td><td><span class="badge b-fail">P1 Fail</span></td><td class="src">CPI above threshold</td></tr>
+        <tr><td class="cid">CL-5-801</td><td>Sofi</td><td>Chisme — "oh my god are you serious? She slept with who?"</td><td><span class="badge b-iter">Iterative</span> <span class="badge b-p2p">P2</span></td><td class="src">Unhinged scenario</td><td><span class="badge b-efail">P2 Early Fail</span></td><td class="src">$86.15 CPFT · 42.9% ITR</td></tr>
+        <tr><td class="cid">CL-5-802</td><td>Sofi</td><td>Chisme — "they really thought I didn't understand"</td><td><span class="badge b-iter">Iterative</span> <span class="badge b-fld">FLD</span></td><td class="src">Unhinged scenario</td><td><span class="badge b-fail">P1 Fail</span></td><td class="src">CPI above threshold</td></tr>
+        <tr><td class="cid">CL-5-803</td><td>Sofi</td><td>"Put a finger down if speaking Spanish saved your life"</td><td><span class="badge b-deriv">Derivative</span> <span class="badge b-fld">FLD</span></td><td class="src">Viral trend</td><td><span class="badge b-fail">P1 Fail</span></td><td class="src">CPI above threshold</td></tr>
+        <tr><td class="cid">CL-5-804</td><td>Sofi</td><td>"Put a finger down if you learned Spanish to be toxic"</td><td><span class="badge b-iter">Iterative</span> <span class="badge b-p2p">P2</span></td><td class="src">Viral trend</td><td><span class="badge b-efail">P2 Early Fail</span></td><td class="src">$65.22 CPFT · 30.8% ITR</td></tr>
+        <tr><td class="cid">CL-5-805</td><td>Sofi</td><td>Passing the phone — no sabo sis edition</td><td><span class="badge b-new">New Bet</span> <span class="badge b-fld">FLD</span></td><td class="src">Viral trend</td><td><span class="badge b-fail">P1 Fail</span></td><td class="src">CPI above threshold</td></tr>
+        <tr><td class="cid">CL-5-806</td><td>Sofi</td><td>Passing the phone — abuela edition</td><td><span class="badge b-new">New Bet</span> <span class="badge b-fld">FLD</span></td><td class="src">Viral trend</td><td><span class="badge b-fail">P1 Fail</span></td><td class="src">CPI above threshold</td></tr>
+        <tr><td class="cid">CL-5-807</td><td>Sofi</td><td>Nail salon — "Ay, tu hablas español?" fresh hook</td><td><span class="badge b-iter">Iterative</span> <span class="badge b-p2p">P2</span></td><td class="src">IRL demo</td><td><span class="badge b-efail">P2 Early Fail</span></td><td class="src">$59.17 CPFT · 20.7% ITR</td></tr>
+        <tr><td class="cid">CL-5-808</td><td>Sofi</td><td>Nail salon — chisme comprehension angle</td><td><span class="badge b-iter">Iterative</span> <span class="badge b-fld">FLD</span></td><td class="src">IRL demo</td><td><span class="badge b-p1w">P1 Win → P2</span></td><td class="src">SP 2.33 · CPI $11.20</td></tr>
+        <tr class="sr"><td colspan="7">Aydreon — IRL bar iterations + new concepts</td></tr>
+        <tr><td class="cid">CL-5-809</td><td>Aydreon</td><td>Bar IRL — "bro, I learned some Spanish, let me flex"</td><td><span class="badge b-iter">Iterative</span> <span class="badge b-p2p">P2</span></td><td class="src">IRL demo</td><td><span class="badge b-sfail">P2 Soft Fail</span></td><td class="src">$46.01 CPFT · 22.2% ITR</td></tr>
+        <tr><td class="cid">CL-5-810</td><td>Aydreon</td><td>Bar IRL — travel context variant "Oye, tu hablas español?"</td><td><span class="badge b-iter">Iterative</span> <span class="badge b-p2p">P2</span></td><td class="src">IRL demo</td><td><span class="badge b-efail">P2 Early Fail</span></td><td class="src">$59.96 CPFT · 37.5% ITR</td></tr>
+        <tr><td class="cid">CL-5-811</td><td>Aydreon</td><td>Poolside Dominican dialect — "keeps getting easier"</td><td><span class="badge b-new">New Bet</span> <span class="badge b-p2p">P2</span></td><td class="src">IRL demo</td><td><span class="badge b-win">P2 Win</span></td><td class="src">$28.31 CPFT · SP 6.46</td></tr>
+        <tr><td class="cid">CL-5-812</td><td>Aydreon</td><td>IRL concept variant (sibling to CL-5-811)</td><td><span class="badge b-new">New Bet</span> <span class="badge b-fld">FLD</span></td><td class="src">IRL demo</td><td><span class="badge b-fail">P1 Fail</span></td><td class="src">CPI above threshold</td></tr>
+        <tr class="sr"><td colspan="7">Ryanne — net-new listicle format</td></tr>
+        <tr><td class="cid">CL-5-793</td><td>Ryanne</td><td>Listicle format — concept A</td><td><span class="badge b-new">New Bet</span> <span class="badge b-fld">FLD</span></td><td class="src">Listicle</td><td><span class="badge b-fail">P1 Fail</span></td><td class="src">CPI above threshold</td></tr>
+        <tr><td class="cid">CL-5-794</td><td>Ryanne</td><td>Cheat code to Spanish fluency — listicle</td><td><span class="badge b-new">New Bet</span> <span class="badge b-fld">FLD</span></td><td class="src">Listicle</td><td><span class="badge b-win">P2 Win</span></td><td class="src">$26.64 CPFT · 24.4% ITR</td></tr>
+        <tr class="sr"><td colspan="7">Steph Vaughn — new bet + iterations</td></tr>
+        <tr><td class="cid">CL-5-813</td><td>Steph V.</td><td>Trending audio reaction — "endangered Latina in my household"</td><td><span class="badge b-new">New Bet</span> <span class="badge b-p2p">P2</span></td><td class="src">Testimonial/reaction</td><td><span class="badge b-efail">P2 Early Fail</span></td><td class="src">$59.35 CPFT · 50% ITR</td></tr>
+        <tr><td class="cid">CL-5-814</td><td>Steph V.</td><td>Car testimonial — peer-to-peer no-sabo qualifier</td><td><span class="badge b-iter">Iterative</span> <span class="badge b-fld">FLD</span></td><td class="src">Car testimonial</td><td><span class="badge b-fail">P1 Fail</span></td><td class="src">CPI above threshold</td></tr>
+        <tr><td class="cid">CL-5-815</td><td>Steph V.</td><td>Trending catch hook — "cancelled for not knowing 'napkin'"</td><td><span class="badge b-deriv">Derivative</span> <span class="badge b-fld">FLD</span></td><td class="src">Unhinged scenario</td><td><span class="badge b-fail">P1 Fail</span></td><td class="src">CPI above threshold</td></tr>
+        <tr class="sr"><td colspan="7">Ryanne — walk &amp; talk / quiz formats</td></tr>
+        <tr><td class="cid">CL-5-789</td><td>Ryanne</td><td>Walk &amp; talk — Spanish gov PSA for Americans living in Spain 19s</td><td><span class="badge b-new">New Bet</span> <span class="badge b-fld">FLD</span></td><td class="src">Walk &amp; Talk</td><td><span class="badge b-fail">P1 Fail</span></td><td class="src">SP 1.58 · CPI $30.42</td></tr>
+        <tr><td class="cid">CL-5-790</td><td>Ryanne</td><td>Walk &amp; talk — if you can't speak Spanish but live in Spain 28s</td><td><span class="badge b-new">New Bet</span> <span class="badge b-fld">FLD</span></td><td class="src">Walk &amp; Talk</td><td><span class="badge b-fail">P1 Fail</span></td><td class="src">SP 3.69 · CPI $22.72</td></tr>
+        <tr><td class="cid">CL-5-791</td><td>Ryanne</td><td>Quiz — shocking Spanish bestie with my fluency 30s</td><td><span class="badge b-new">New Bet</span> <span class="badge b-fld">FLD</span></td><td class="src">Walk &amp; Talk</td><td><span class="badge b-fail">P1 Fail</span></td><td class="src">SP 3.92 · CPI $25.39</td></tr>
+        <tr><td class="cid">CL-5-792</td><td>Ryanne</td><td>Quiz — "have you even been living in Spain for 6 months?" 41s</td><td><span class="badge b-new">New Bet</span> <span class="badge b-fld">FLD</span></td><td class="src">Walk &amp; Talk</td><td><span class="badge b-fail">P1 Fail</span></td><td class="src">SP 2.20 · CPI $23.97</td></tr>
+        <tr class="sr"><td colspan="7">Susie — FaceTime recut</td></tr>
+        <tr><td class="cid">CL-5-798</td><td>Susie</td><td>FaceTime recut — hard cut vulnerability + Spanish</td><td><span class="badge b-recut">Recut</span> <span class="badge b-fld">FLD</span></td><td class="src">FaceTime</td><td><span class="badge b-fail">P1 Fail</span></td><td class="src">CPI above threshold</td></tr>
+      </tbody>
+    </table>
+    <p class="note">All 27 assets confirmed in SP daily v14. 13 P1 winners — highest pass rate of any May batch (48%). CL-5-789–792 are Ryanne walk-and-talk/quiz, not Susie FaceTime — correct creator attribution. CL-5-813 high ITR (50%) at P2 early fail — hook signal despite poor CPFT. All 4 Ryanne walk-and-talk formats failed — contrast with CL-5-794 listicle win (also FLD but exceptional creative).</p>
+  </div>
+
+  <!-- SLIDE 5: WEEK OF MAY 15 -->
+  <div class="slide">
+    <div class="tag"><span class="tag-dot"></span>Batch — week of May 15</div>
+    <div class="week-header">10 assets · Sofi nail salon wins · Aydreon new concepts and recuts</div>
+    <div style="display:flex;gap:16px;margin-bottom:6px">
+      <span style="font-size:11px;color:#888">Assessed: <strong style="color:#111">10 / 10</strong></span>
+      <span style="font-size:11px;color:#888">P1 pass: <strong style="color:#111">5 / 10 (50%)</strong></span>
+      <span style="font-size:11px;color:#888">P2 wins: <strong style="color:#1B6B1B">1</strong></span>
+      <span style="font-size:11px;color:#888">Win rate (delivered): <strong style="color:#1B6B1B">10%</strong></span>
+    </div>
+    <div class="week-sub">CL-5-880 (Sofi nail salon) is the highest-ITR P2 winner in May at $27.45 CPFT. CL-5-864 sibling failure is the key debrief read for this week.</div>
+
+    <table class="ct">
+      <thead><tr><th style="width:76px">CL ID</th><th style="width:70px">Creator</th><th>Concept</th><th style="width:64px">Type</th><th style="width:72px">Format</th><th style="width:72px">Outcome</th><th style="width:80px">Key metric</th></tr></thead>
+      <tbody>
+        <tr><td class="cid">CL-5-880</td><td>Sofi</td><td>Nail salon — "nail tech said I speak perfect Spanish"</td><td><span class="badge b-iter">Iterative</span> <span class="badge b-fld">FLD</span></td><td class="src">IRL demo</td><td><span class="badge b-win">P2 Win</span></td><td class="src">$27.45 CPFT · 30.4% ITR</td></tr>
+        <tr><td class="cid">CL-5-864</td><td>Sofi</td><td>Reaction-led 20.1s — "she was shook I spoke Spanish" same shoot as 795</td><td><span class="badge b-recut">Recut</span> <span class="badge b-p2p">P2</span></td><td class="src">IRL demo</td><td><span class="badge b-efail">P1 Win → P2 Collapse</span></td><td class="src">P1 CPI $6.73 · P2 CTI fell 29.6%→2.44%</td></tr>
+        <tr><td class="cid">CL-5-865</td><td>Aydreon</td><td>Regional Spanish variant recut — "Dominican Spanish is easier"</td><td><span class="badge b-recut">Recut</span> <span class="badge b-p2p">P2</span></td><td class="src">IRL demo</td><td><span class="badge b-sfail">P2 Soft Fail</span></td><td class="src">$51.87 CPFT · 21.4% ITR</td></tr>
+        <tr><td class="cid">CL-5-866</td><td>Susie</td><td>FaceTime recut — reaction-led 20.1s</td><td><span class="badge b-recut">Recut</span> <span class="badge b-p2p">P2</span></td><td class="src">FaceTime</td><td><span class="badge b-sfail">P2 Soft Fail</span></td><td class="src">$51.86 CPFT · 32.1% ITR</td></tr>
+        <tr><td class="cid">CL-5-874</td><td>Motion</td><td>Trend dancing — Bad Bunny DTMF "gringas can't speak Spanish in town" 14s</td><td><span class="badge b-deriv">Derivative</span> <span class="badge b-p2p">P2</span></td><td class="src">Trend / motion</td><td><span class="badge b-p1w">P1 Win → P2</span></td><td class="src">SP 2.63 · CPI $7.64</td></tr>
+        <tr><td class="cid">CL-5-875</td><td>Motion</td><td>Trend dancing — Provenza Karol G "gringas can't speak Spanish on beach" 14s</td><td><span class="badge b-deriv">Derivative</span> <span class="badge b-fld">FLD</span></td><td class="src">Trend / motion</td><td><span class="badge b-fail">P1 Fail</span></td><td class="src">SP 1.56 · CPI $18.42</td></tr>
+        <tr><td class="cid">CL-5-876</td><td>Aydreon</td><td>Listicle iteration A</td><td><span class="badge b-iter">Iterative</span> <span class="badge b-fld">FLD</span></td><td class="src">Listicle</td><td><span class="badge b-fail">P1 Fail</span></td><td class="src">CPI above threshold</td></tr>
+        <tr><td class="cid">CL-5-877</td><td>Aydreon</td><td>Listicle top-3-tips-get-fluent-fast 26s <em style="color:#888;font-size:10px">(also run as PartnershipRetest)</em></td><td><span class="badge b-iter">Iterative</span> <span class="badge b-fld">FLD</span></td><td class="src">Listicle</td><td><span class="badge b-fail">P1 Fail</span></td><td class="src">CPI above threshold</td></tr>
+        <tr><td class="cid">CL-5-881</td><td>Sofi</td><td>Overheard chisme — shopping at Target, sister gasps 21s</td><td><span class="badge b-new">New Bet</span> <span class="badge b-fld">FLD</span></td><td class="src">Overheard convo</td><td><span class="badge b-fail">P1 Fail</span></td><td class="src">SP 2.55 · CPI $17.35</td></tr>
+        <tr><td class="cid">CL-5-883</td><td>Sofi</td><td>Overheard chisme — family group chat leaked, no-sabo cousin 28s</td><td><span class="badge b-new">New Bet</span> <span class="badge b-fld">FLD</span></td><td class="src">Overheard convo</td><td><span class="badge b-fail">P1 Fail</span></td><td class="src">SP 3.38 · CPI $17.74</td></tr>
+      </tbody>
+    </table>
+    <p class="note">All 10 assets confirmed in SP daily v14. 5 P1 winners: 880 (Sofi, FLD exception — P2 Win), 864 (Sofi, P2 collapsed), 865 (Aydreon), 866 (Susie), 874 (Motion, P2-Embedded). 864 and 880 are the same Sofi nail salon shoot — 880 edited to retain the product placement in the second act (FLD but kept Speak visible), 864 reaction-led cut drops the product reveal. CL-5-874/875 are motion/trend assets with no human creator.</p>
+  </div>
+
+  <!-- SLIDE 6: WEEK OF MAY 22 -->
+  <div class="slide">
+    <div class="tag"><span class="tag-dot"></span>Batch — week of May 22</div>
+    <div class="week-header">13 assets · Word Wall format push · mixed signals · 1 P1 winner rescue</div>
+    <div style="display:flex;gap:16px;margin-bottom:6px">
+      <span style="font-size:11px;color:#888">Assessed: <strong style="color:#111">13 / 13</strong></span>
+      <span style="font-size:11px;color:#888">P1 pass: <strong style="color:#111">6 / 13 (46%)</strong> <span style="color:#7755CC">· 1 limbo</span></span>
+      <span style="font-size:11px;color:#888">P2 wins: <strong style="color:#555">0</strong></span>
+      <span style="font-size:11px;color:#888">Win rate (delivered): <strong style="color:#555">0%</strong></span>
+    </div>
+    <div class="week-sub">Word Wall was the primary new format bet this week. All word wall assets failed or soft-passed P1. CL-5-901 (Sofi word wall + nail salon hybrid) is the sole P1 winner — thin margin, rescue flag.</div>
+
+    <table class="ct">
+      <thead><tr><th style="width:76px">CL ID</th><th style="width:70px">Creator</th><th>Concept</th><th style="width:64px">Type</th><th style="width:72px">Format</th><th style="width:72px">Outcome</th><th style="width:80px">Key metric</th></tr></thead>
+      <tbody>
+        <tr class="sr"><td colspan="7">Sofi — word wall derivatives + chisme airport</td></tr>
+        <tr><td class="cid">CL-5-901</td><td>Sofi</td><td>Word wall + nail salon hybrid — "practice with me 1 month"</td><td><span class="badge b-deriv">Derivative</span></td><td class="src">Word Wall</td><td><span class="badge b-p1w">P1 Win → P2</span></td><td class="src">SP 3.03 · CPFT $53.31 rescue</td></tr>
+        <tr><td class="cid">CL-5-902</td><td>Sofi</td><td>Word wall + travel b-roll — "give me 6 weeks" 14.5s</td><td><span class="badge b-deriv">Derivative</span></td><td class="src">Word Wall</td><td><span class="badge b-p1w">P1 Win → P2 ✗</span></td><td class="src">P1 CPI $8.60 · P2 $134.94 CPFT</td></tr>
+        <tr><td class="cid">CL-5-899</td><td>Sofi</td><td>Airport chisme FaceTime — "craziest chisme at the airport" 41s</td><td><span class="badge b-deriv">Derivative</span></td><td class="src">Overheard convo</td><td><span class="badge b-fail">P1 Fail</span></td><td class="src">CPI $22.60 · product at 33s</td></tr>
+        <tr><td class="cid">CL-5-900</td><td>Sofi</td><td>Airport chisme — 36s cut sibling</td><td><span class="badge b-deriv">Derivative</span></td><td class="src">Overheard convo</td><td><span class="badge b-limbo">Limbo</span></td><td class="src">SP 0.57</td></tr>
+        <tr class="sr"><td colspan="7">Aydreon — listicle recuts + word wall derivatives</td></tr>
+        <tr><td class="cid">CL-5-903</td><td>Aydreon</td><td>Listicle recut — "went from outsider to in the convo" 30s</td><td><span class="badge b-recut">Recut</span> <span class="badge b-fld">FLD</span></td><td class="src">Listicle</td><td><span class="badge b-fail">P1 Fail</span></td><td class="src">SP 3.41</td></tr>
+        <tr><td class="cid">CL-5-904</td><td>Aydreon</td><td>In-laws listicle recut — stripped to punchline 15s</td><td><span class="badge b-recut">Recut</span> <span class="badge b-p2p">P2</span></td><td class="src">Listicle</td><td><span class="badge b-p1w">P1 Win → P2</span></td><td class="src">SP 2.34 · CPI $9.50</td></tr>
+        <tr><td class="cid">CL-5-906</td><td>Aydreon</td><td>Word wall — 6-week timeline travel context</td><td><span class="badge b-deriv">Derivative</span> <span class="badge b-p2p">P2</span></td><td class="src">Word Wall</td><td><span class="badge b-efail">P2 Early Fail</span></td><td class="src">$59.54 CPFT · 60% ITR · SP 5.51</td></tr>
+        <tr><td class="cid">CL-5-905</td><td>Aydreon</td><td>Word wall + uber surprise — practice with me 1 month 36s</td><td><span class="badge b-deriv">Derivative</span> <span class="badge b-p2p">P2</span></td><td class="src">Word Wall</td><td><span class="badge b-p1w">P1 Win → P2</span></td><td class="src">SP 4.08 · CPI $6.79</td></tr>
+        <tr class="sr"><td colspan="7">Susie — iterations + word wall</td></tr>
+        <tr><td class="cid">CL-5-898</td><td>Susie</td><td>Neighborhood kids — "my neighbors' kids are no-sabo"</td><td><span class="badge b-iter">Iterative</span> <span class="badge b-fld">FLD</span></td><td class="src">Unhinged scenario</td><td><span class="badge b-fail">P1 Fail</span></td><td class="src">SP 3.22</td></tr>
+        <tr><td class="cid">CL-5-896</td><td>Susie</td><td>FaceTime heritage mom — adult bedroom (vs kids room source)</td><td><span class="badge b-iter">Iterative</span> <span class="badge b-fld">FLD</span></td><td class="src">FaceTime</td><td><span class="badge b-fail">P1 Fail</span></td><td class="src">CPI $28.47 · CTI −64%</td></tr>
+        <tr><td class="cid">CL-5-897</td><td>Susie</td><td>Word wall + FaceTime hybrid</td><td><span class="badge b-deriv">Derivative</span> <span class="badge b-fld">FLD</span></td><td class="src">Word Wall</td><td><span class="badge b-fail">P1 Fail</span></td><td class="src">SP 1.32</td></tr>
+        <tr class="sr"><td colspan="7">Catherine — new creator casting test</td></tr>
+        <tr><td class="cid">CL-5-895</td><td>Catherine</td><td>Walk &amp; Talk — Duolingo dig PSA "real fluency is actually speaking" 23s</td><td><span class="badge b-iter">Iterative</span> <span class="badge b-fld">FLD</span></td><td class="src">Walk &amp; Talk</td><td><span class="badge b-fail">P1 Fail</span></td><td class="src">SP 3.57 · CPI $15.97</td></tr>
+        <tr><td class="cid">CL-5-894</td><td>Catherine</td><td>Uber driver — "when you no longer need Google Translate" 27s</td><td><span class="badge b-iter">Iterative</span> <span class="badge b-p2p">P2</span></td><td class="src">IRL demo</td><td><span class="badge b-sfail">P2 Soft Fail</span></td><td class="src">P1 SP 2.81 · CPI $9.06 · P2 $56.41 CPFT</td></tr>
+      </tbody>
+    </table>
+    <p class="note">All 13 assets confirmed in SP daily v14. 6 P1 winners + 1 limbo (900). CL-5-902 P1 pass driven by CTI (50%, +113%), not thumbstop (17%). P2 collapse confirmed word wall cannot hold install→trial at scale. CL-5-896 bedroom swap vs kids' room source (CL-1-124): hook rate dropped 15pp, CTI collapsed 31.7%→8.5% — setting doing identity work. CL-5-894 (Catherine): passed P1 with SP 2.81 then soft-failed P2 at $56.41 CPFT. CL-5-905 corrected from P1 Fail — is a P1 winner (SP 4.08, CPI $6.79).</p>
+  </div>
+
+  <!-- SLIDE 7: WEEK OF MAY 29 -->
+  <div class="slide">
+    <div class="tag"><span class="tag-dot"></span>Batch — week of May 29</div>
+    <div class="week-header">21 assets · organic pulldown + relationship derivative lead · Word Wall batch fails</div>
+    <div style="display:flex;gap:16px;margin-bottom:6px">
+      <span style="font-size:11px;color:#888">Assessed: <strong style="color:#111">21 / 21</strong></span>
+      <span style="font-size:11px;color:#888">P1 pass: <strong style="color:#111">3 / 21 (14%)</strong> <span style="color:#7755CC">· 4 limbo</span></span>
+      <span style="font-size:11px;color:#888">P2 wins: <strong style="color:#555">0 <span style="color:#7755CC">(3 entering P2)</span></strong></span>
+      <span style="font-size:11px;color:#888">Win rate (delivered): <strong style="color:#555">— pending</strong></span>
+    </div>
+    <div class="week-sub">CL-5-940 (SP 7.16) and CL-5-943 (SP 5.08) are the top P1 winners — both organic-source Aydreon assets. Word Wall batch (CL-5-935, 945–948) failed cleanly — SP scores 1.3–3.6, format retired. CL-5-932 in limbo with highest SP of any Zig asset.</div>
+
+    <table class="ct">
+      <thead><tr><th style="width:76px">CL ID</th><th style="width:70px">Creator</th><th>Concept</th><th style="width:64px">Type</th><th style="width:72px">Format</th><th style="width:72px">Outcome</th><th style="width:80px">Key metric</th></tr></thead>
+      <tbody>
+        <tr class="sr"><td colspan="7">Aydreon — organic pulldowns, derivatives, word wall</td></tr>
+        <tr><td class="cid">CL-5-940</td><td>Aydreon</td><td>"He was shook I learned Spanish from an app" organic pulldown recut</td><td><span class="badge b-recut">Recut</span> <span class="badge b-p2p">P2</span></td><td class="src">IRL demo</td><td><span class="badge b-p1w">P1 Win → P2</span></td><td class="src">SP 7.16 · CTI 39.6% · highest May SP</td></tr>
+        <tr><td class="cid">CL-5-943</td><td>Aydreon</td><td>"Married a Latina without speaking Spanish" derivative</td><td><span class="badge b-deriv">Derivative</span> <span class="badge b-p2p">P2</span></td><td class="src">IRL demo</td><td><span class="badge b-p1w">P1 Win → P2</span></td><td class="src">SP 5.08 · CTI 36.7% · CPFT $63.94</td></tr>
+        <tr><td class="cid">CL-5-944</td><td>Aydreon</td><td>"Surviving Latin in-laws 101" — app demo testimonial 27s</td><td><span class="badge b-deriv">Derivative</span> <span class="badge b-p2p">P2</span></td><td class="src">IRL demo</td><td><span class="badge b-efail">P2 Early Fail</span></td><td class="src">SP 3.81 · P2 $46.52 CPFT · 22.2% ITR</td></tr>
+        <tr><td class="cid">CL-5-941</td><td>Aydreon</td><td>"Black people can speak Spanish?" organic pulldown GS</td><td><span class="badge b-recut">Recut</span> <span class="badge b-fld">FLD</span></td><td class="src">Testimonial/GS</td><td><span class="badge b-fail">P1 Fail</span></td><td class="src">SP 4.16 · CPFT $55.74</td></tr>
+        <tr><td class="cid">CL-5-942</td><td>Aydreon</td><td>Greenscreen testimonial — "Black people can speak Spanish" comment reply 44s</td><td><span class="badge b-recut">Recut</span></td><td class="src">Testimonial/GS</td><td><span class="badge b-limbo">Limbo</span></td><td class="src">SP 0.16</td></tr>
+        <tr><td class="cid">CL-5-939</td><td>Aydreon</td><td>App demo recut — "fluent in two months" opener</td><td><span class="badge b-recut">Recut</span></td><td class="src">App demo</td><td><span class="badge b-fail">P1 Fail</span></td><td class="src">SP 0.88 · CPFT $39.87</td></tr>
+        <tr><td class="cid">CL-5-938</td><td>Aydreon</td><td>App demo recut — app-first opening</td><td><span class="badge b-recut">Recut</span></td><td class="src">App demo</td><td><span class="badge b-fail">P1 Fail</span></td><td class="src">SP 1.75 · CPFT $64.73</td></tr>
+        <tr><td class="cid">CL-5-937</td><td>Aydreon</td><td>Whiteboard recut 27s — "Spanish class is in session"</td><td><span class="badge b-recut">Recut</span></td><td class="src">Whiteboard</td><td><span class="badge b-fail">P1 Fail</span></td><td class="src">SP 3.33 · CPFT $119</td></tr>
+        <tr><td class="cid">CL-5-936</td><td>Aydreon</td><td>Whiteboard recut 22s — "Spanish class is in session"</td><td><span class="badge b-recut">Recut</span></td><td class="src">Whiteboard</td><td><span class="badge b-fail">P1 Fail</span></td><td class="src">SP 3.48 · CPFT $63.56</td></tr>
+        <tr><td class="cid">CL-5-945</td><td>Aydreon</td><td>Word wall — Bad Bunny "Titi Mi Pregunta" audio</td><td><span class="badge b-iter">Iterative</span></td><td class="src">Word Wall</td><td><span class="badge b-fail">P1 Fail</span></td><td class="src">SP 3.57 · CPFT $116</td></tr>
+        <tr><td class="cid">CL-5-946</td><td>Aydreon</td><td>Word wall — DTMF audio</td><td><span class="badge b-iter">Iterative</span></td><td class="src">Word Wall</td><td><span class="badge b-fail">P1 Fail</span></td><td class="src">SP 2.14</td></tr>
+        <tr class="sr"><td colspan="7">Sofi — word wall iterations</td></tr>
+        <tr><td class="cid">CL-5-947</td><td>Sofi</td><td>Word wall — DTMF audio</td><td><span class="badge b-iter">Iterative</span></td><td class="src">Word Wall</td><td><span class="badge b-fail">P1 Fail</span></td><td class="src">SP 1.55 · CPFT $122</td></tr>
+        <tr class="sr"><td colspan="7">Zig — listicle iterations + recuts</td></tr>
+        <tr><td class="cid">CL-5-932</td><td>Zig</td><td>Regional dialect comparison — "same phrase sounds different by country"</td><td><span class="badge b-iter">Iterative</span></td><td class="src">Listicle</td><td><span class="badge b-limbo">Limbo</span></td><td class="src">SP 6.75 · CPFT $38.93</td></tr>
+        <tr><td class="cid">CL-5-933</td><td>Zig</td><td>Duolingo differentiation — "Duolingo has you sounding like a textbook"</td><td><span class="badge b-iter">Iterative</span></td><td class="src">Listicle</td><td><span class="badge b-limbo">Limbo</span></td><td class="src">SP 2.44 · CPFT $124 — below threshold</td></tr>
+        <tr><td class="cid">CL-5-934</td><td>Zig</td><td>IRL Dominican Spanish recut — "want to talk like a Dominican?"</td><td><span class="badge b-recut">Recut</span></td><td class="src">IRL demo</td><td><span class="badge b-fail">P1 Fail</span></td><td class="src">SP 1.69 · CPI $19.27</td></tr>
+        <tr><td class="cid">CL-5-935</td><td>Zig</td><td>Word wall — trending audio recut</td><td><span class="badge b-recut">Recut</span></td><td class="src">Word Wall</td><td><span class="badge b-fail">P1 Fail</span></td><td class="src">SP 1.36 · CPFT $123</td></tr>
+        <tr class="sr"><td colspan="7">Gio — word wall iteration</td></tr>
+        <tr><td class="cid">CL-5-948</td><td>Gio</td><td>Word wall — trending horror movies audio</td><td><span class="badge b-iter">Iterative</span></td><td class="src">Word Wall</td><td><span class="badge b-fail">P1 Fail</span></td><td class="src">SP 1.99 · CPFT $119</td></tr>
+        <tr class="sr"><td colspan="7">Lia / Dora — new creators</td></tr>
+        <tr><td class="cid">CL-5-930</td><td>Lia</td><td>Playground IRL — "raising a si-sabo kid as a no-sabo mom"</td><td><span class="badge b-iter">Iterative</span></td><td class="src">IRL demo</td><td><span class="badge b-fail">P1 Fail</span></td><td class="src">SP 3.65 · CPFT $117</td></tr>
+        <tr><td class="cid">CL-5-929</td><td>Lia</td><td>Parenting social proof — "kid's Spanish earned parent compliment"</td><td><span class="badge b-iter">Iterative</span></td><td class="src">IRL demo</td><td><span class="badge b-fail">P1 Fail</span></td><td class="src">SP 1.58</td></tr>
+        <tr><td class="cid">CL-5-931</td><td>Dora</td><td>FaceTime — "Hispanic dads when you finally speak Spanish"</td><td><span class="badge b-iter">Iterative</span></td><td class="src">FaceTime</td><td><span class="badge b-fail">P1 Fail</span></td><td class="src">SP 4.79</td></tr>
+        <tr><td class="cid">CL-5-949</td><td>Gio</td><td>Viral trend word wall — top 5 horror movies / 300-day Duolingo streak 8s</td><td><span class="badge b-iter">Iterative</span></td><td class="src">Word Wall</td><td><span class="badge b-limbo">Limbo</span></td><td class="src">SP 1.36 · CPI $45.44</td></tr>
+      </tbody>
+    </table>
+    <p class="note">CL-5-932 is the highest-SP Zig asset in May (6.75) — near the P1 winner threshold and worth a P2 entry decision. CL-5-940 SP 7.16 is the highest of any Cousins May P1 entrant — source footage organic, recut for paid. Word Wall format across May 29: 5 assets, SP range 1.36–3.57 — format not competitive. Lia and Dora first appearances; neither crossed P1 threshold.</p>
+  </div>
+
+  <!-- SLIDE 8: CREATOR TRENDS -->
+  <div class="slide">
+    <div class="tag"><span class="tag-dot"></span>Creator trends — May 2026</div>
+    <div class="headline">Aydreon leads volume and P1 SP ceiling · Sofi anchors P2 · Ryanne highest ITR · Susie/Steph volume without conversion</div>
+
+    <table class="ct">
+      <thead><tr><th>Creator</th><th>Assets</th><th>P2 Wins</th><th>P1 Wins</th><th>Best outcome</th><th>Read</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Aydreon</strong></td><td class="src">20</td><td class="src">1</td><td class="src">8</td><td><span class="badge b-win">P2 Win · CL-5-811</span></td><td class="src">Heaviest Cousins creator in May. P1 wins: 940 (SP 7.16, highest May), 943 (SP 5.08), 944, 905, 904, 809, 810, 811. Dialect specificity (poolside Dominican) and relationship derivatives are top signals. Bar IRL underperforms poolside — setting matters.</td></tr>
+        <tr><td><strong>Sofi</strong></td><td class="src">18</td><td class="src">1</td><td class="src">10</td><td><span class="badge b-win">P2 Win · CL-5-880</span></td><td class="src">Most P1 winners of any creator (10). Nail salon social-proof hook confirmed format. 14-asset May 8 over-indexed on chisme — none converted. Chisme does not transfer outside captive-audience setting. 864 P2 collapse is key debrief.</td></tr>
+        <tr><td><strong>Ryanne</strong></td><td class="src">6</td><td class="src">1</td><td class="src">0</td><td><span class="badge b-win">P2 Win · CL-5-794</span></td><td class="src">Highest ITR of any May P2 winner (CTI 53%, CPFT $26.64). Listicle is net-new format discovery. Walk-and-talk/quiz formats (789–792) all failed — contrast with 794 listicle win. June brief should prioritize listicle expansion, not walk-and-talk.</td></tr>
+        <tr><td><strong>Zig</strong></td><td class="src">7</td><td class="src">0</td><td class="src">0</td><td><span class="badge b-limbo">Limbo · CL-5-932</span></td><td class="src">Regional dialect listicle (932, SP 6.75) is strongest May signal. Competitive differentiation angle ("Duolingo makes you sound like a textbook") hasn't converted but warrants tighter iteration.</td></tr>
+        <tr><td><strong>Steph Vaughn</strong></td><td class="src">5</td><td class="src">0</td><td class="src">1</td><td><span class="badge b-efail">P2 Early Fail · CL-5-813</span></td><td class="src">CL-5-813 had 50% ITR at P2 early fail — interesting hook signal despite poor CPFT. Car testimonial and trending hooks didn't reach P1 pass. Creator fit unresolved.</td></tr>
+        <tr><td><strong>Susie</strong></td><td class="src">5</td><td class="src">0</td><td class="src">2</td><td><span class="badge b-sfail">P2 Soft Fail · CL-5-866</span></td><td class="src">CL-5-866 and CL-5-896 confirm: setting in FaceTime is not neutral — kids' room (CL-1-124) is load-bearing. Bedroom swap fails. Note: 789–792 are Ryanne, not Susie (corrected attribution).</td></tr>
+        <tr><td><strong>Catherine</strong></td><td class="src">2</td><td class="src">0</td><td class="src">1</td><td><span class="badge b-sfail">P2 Soft Fail · CL-5-894</span></td><td class="src">Uber driver IRL demo passed P1 (SP 2.81, CPI $9.06) then soft-failed P2 ($56.41 CPFT). Walk-and-talk (895) failed P1. Two concepts is still thin — warrants a third brief in a P2-Embedded slot before drawing conclusions.</td></tr>
+        <tr><td><strong>Gio</strong></td><td class="src">5</td><td class="src">0</td><td class="src">2</td><td><span class="badge b-ok">Scaling OK · CL-5-780</span></td><td class="src">Whiteboard format holding at Scaling OK ($39.59 CPFT). Well below CL-4-759 BAU anchor ($35.26). Word wall iteration (949) in limbo. Recuts not finding new ceiling.</td></tr>
+        <tr><td><strong>Lia / Dora</strong></td><td class="src">3</td><td class="src">0</td><td class="src">0</td><td><span class="badge b-fail">P1 Fail</span></td><td class="src">First appearances. Lia SP 3.65 (playground) above avg P1 fail — parenting angle worth a second brief. Dora FaceTime dad SP 4.79 — concept proven in other creators, worth a P2-Embedded brief.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- SLIDE 9: FORMAT + THUMBSTOP TRENDS -->
+  <div class="slide">
+    <div class="tag"><span class="tag-dot"></span>Format + thumbstop trends — May 2026</div>
+    <div class="headline">IRL demo is the only format with a P2 conversion path · Word Wall retired · Listicle emerging</div>
+
+    <div class="two-col">
+      <div>
+        <div class="section-lbl">Format P2 conversion record</div>
+        <div class="stat-row"><span class="stat-lbl">IRL Spanish Demo</span><span class="stat-val green">3 P2 winners / 24 assets</span></div>
+        <div class="stat-row"><span class="stat-lbl">Listicle</span><span class="stat-val green">1 P2 winner / 13 assets (Ryanne)</span></div>
+        <div class="stat-row"><span class="stat-lbl">Whiteboard Explainer</span><span class="stat-val">Scaling OK only / 4 assets</span></div>
+        <div class="stat-row"><span class="stat-lbl">FaceTime</span><span class="stat-val">P2 Soft Fail ceiling / 4+ assets</span></div>
+        <div class="stat-row"><span class="stat-lbl">Word Wall</span><span class="stat-val red">0 conversions / 9 assets — retired</span></div>
+        <div class="stat-row"><span class="stat-lbl">Viral Trend / Passing phone</span><span class="stat-val red">0 conversions / 6 assets</span></div>
+        <div class="stat-row"><span class="stat-lbl">Unhinged Scenario / Chisme</span><span class="stat-val red">0 conversions / 5 assets</span></div>
+        <div class="stat-row"><span class="stat-lbl">App Demo</span><span class="stat-val red">0 conversions / 2 assets</span></div>
+      </div>
+      <div>
+        <div class="section-lbl">Hook pattern reads from debriefs</div>
+        <div class="stat-row"><span class="stat-lbl">Social proof / external validation</span><span class="stat-val green">Highest converting hook type</span></div>
+        <div class="stat-row"><span class="stat-lbl">Dialect specificity hook</span><span class="stat-val green">Pre-selects high-intent viewers</span></div>
+        <div class="stat-row"><span class="stat-lbl">Organic-feel / POV callout</span><span class="stat-val green">CL-5-940 SP 7.16 — best May P1 (organic source, recut for paid)</span></div>
+        <div class="stat-row"><span class="stat-lbl">Trending audio / viral format</span><span class="stat-val red">Engagement without conversion</span></div>
+        <div class="stat-row"><span class="stat-lbl">Chisme / gossip narrative</span><span class="stat-val red">High thumbstop, drops before product</span></div>
+        <div class="stat-row"><span class="stat-lbl">Word wall promise / bold claim</span><span class="stat-val red">Low thumbstop (17%) + P2 collapse</span></div>
+        <div class="stat-row"><span class="stat-lbl">Fear / no-sabo shame</span><span class="stat-val red">Not tested at scale — no read yet</span></div>
+      </div>
+    </div>
+
+    <hr class="div">
+    <div class="section-lbl">Key thumbstop observations (from SP daily + debriefs)</div>
+    <ul style="font-size:12px;color:#444;line-height:1.8;padding-left:18px">
+      <li><strong>High thumbstop ≠ high conversion</strong> — CL-5-899 (airport chisme, 48% thumbstop) is the clearest May example. Hook recruited entertainment viewers; product mention at 33s introduced to 2.38% of impressions.</li>
+      <li><strong>Account thumbstop avg: 37.06%</strong> (from SP daily). IRL demo assets generally hold above avg; word wall below due to no-face opening frame.</li>
+      <li><strong>Setting does identity work before audio</strong> — kids' room (CL-1-124, 48% thumbstop) vs adult bedroom (CL-5-896, 37%) proved that the first frame of a FaceTime concept is not neutral. Same hook text, different self-selection.</li>
+      <li><strong>Dialect specificity narrows hook rate but deepens intent</strong> — CL-5-811 poolside Dominican (40.2%) vs CL-5-809 barside (43.7%). Lower hook rate, higher CTI (26.6% vs 19.3%). Specificity is a pre-filter, not a weakness.</li>
+      <li><strong>No-face openers reduce thumbstop but elevate CTI</strong> — CL-5-902 word wall: 17% thumbstop, 50% CTI. The viewers who stop are self-selected and more intentional. P2 still failed — CTI was not the variable that mattered at scale.</li>
+    </ul>
+  </div>
+
+  <!-- SLIDE 10: FOLLOW-UP / NOT ENTERED -->
+  <div class="slide">
+    <div class="tag" style="color:#993300"><span class="tag-dot" style="background:#993300"></span>Follow-up required — outstanding actions</div>
+    <div class="headline">26 P1 fails confirmed via perf master · 10 confirmed absent · remaining: P2 entry decisions + kills to log</div>
+
+    <div class="callout-blue"><strong>Updated June 11 (SP daily v14):</strong> All 84 May assets confirmed in SP daily. 30 P1 winners, 3 P2 scaling winners, 5 limbo. The 10 May 1 FLD assets (CL-5-776–779, 782–787) ran and failed P1 — not killed. Remaining follow-up: P2 entry decisions for CL-5-932 (limbo, SP 6.75), and monitoring for CL-5-940, CL-5-943, CL-5-944 entering P2. CL-5-942 is Limbo (SP 0.16).</div>
+
+    <div class="section-lbl">Outstanding actions</div>
+    <table class="ct">
+      <thead><tr><th style="width:76px">CL ID</th><th style="width:70px">Creator</th><th>Concept</th><th style="width:72px">Week</th><th>Action</th></tr></thead>
+      <tbody>
+        <tr class="sr"><td colspan="5">P2 entry decisions outstanding</td></tr>
+        <tr><td class="cid">CL-5-932</td><td>Zig</td><td>Regional dialect comparison listicle — "same phrase sounds different by country"</td><td class="src">May 29</td><td class="src"><strong>Limbo (SP 6.75, CPFT $38.93)</strong> — near P1 winner threshold. P2 entry decision needed.</td></tr>
+        <tr><td class="cid">CL-5-943</td><td>Aydreon</td><td>"Married a Latina without speaking Spanish" derivative</td><td class="src">May 29</td><td class="src"><strong>P1 Win (SP 5.08)</strong> — entering P2. Monitor spend cadence.</td></tr>
+        <tr><td class="cid">CL-5-944</td><td>Aydreon</td><td>"Surviving Latin in-laws 101" app demo testimonial 27s</td><td class="src">May 29</td><td class="src"><strong>P1 Win (SP 3.81)</strong> — P2 early fail ($46.52 CPFT). No further action needed.</td></tr>
+        <tr><td class="cid">CL-5-904</td><td>Aydreon</td><td>In-laws listicle recut — stripped to punchline 15s</td><td class="src">May 22</td><td class="src"><strong>P1 Win (CPI $9.50)</strong> — entering P2. P2 read pending.</td></tr>
+        <tr class="sr"><td colspan="5">Limbo — monitor or decide</td></tr>
+        <tr><td class="cid">CL-5-942</td><td>Aydreon</td><td>Greenscreen testimonial — "Black people can speak Spanish" comment reply</td><td class="src">May 29</td><td class="src">Limbo (SP 0.16) — very low signal, likely no P2 entry</td></tr>
+        <tr><td class="cid">CL-5-933</td><td>Zig</td><td>Duolingo differentiation listicle — "sounds like a textbook"</td><td class="src">May 29</td><td class="src">Limbo (SP 2.44, CPFT $124) — below threshold. Monitor only.</td></tr>
+        <tr><td class="cid">CL-5-949</td><td>Gio</td><td>Word wall — horror movies / 300-day Duolingo streak 8s</td><td class="src">May 29</td><td class="src">Limbo (SP 1.36, CPI $45.44) — below threshold. No action.</td></tr>
+      </tbody>
+    </table>
+
+    <hr class="div">
+    <div class="section-lbl">May 29 batch — status as of June 11</div>
+    <div class="ne-list">
+      <span class="ne-chip" style="background:#E8F4E8;border-color:#A0C8A0;color:#1B6B1B">CL-5-940 ★ P1 Win</span>
+      <span class="ne-chip" style="background:#E8F4E8;border-color:#A0C8A0;color:#1B6B1B">CL-5-943 ★ P1 Win</span>
+      <span class="ne-chip" style="background:#EEF4FF;border-color:#9BB8EE;color:#1B5EDB">CL-5-932 Limbo ★</span>
+      <span class="ne-chip" style="background:#EEF4FF;border-color:#9BB8EE;color:#1B5EDB">CL-5-933 Limbo</span>
+      <span class="ne-chip" style="background:#F0F0F0;border-color:#CCC;color:#555">CL-5-944 P1 EF</span>
+      <span class="ne-chip" style="background:#F0F0F0;border-color:#CCC;color:#555">CL-5-941 P1F</span>
+      <span class="ne-chip" style="background:#F0F0F0;border-color:#CCC;color:#555">CL-5-934 P1F</span>
+      <span class="ne-chip" style="background:#F0F0F0;border-color:#CCC;color:#555">CL-5-935 P1F</span>
+      <span class="ne-chip" style="background:#F0F0F0;border-color:#CCC;color:#555">CL-5-929 P1F</span>
+      <span class="ne-chip" style="background:#F0F0F0;border-color:#CCC;color:#555">CL-5-930 P1F</span>
+      <span class="ne-chip" style="background:#F0F0F0;border-color:#CCC;color:#555">CL-5-931 P1F</span>
+      <span class="ne-chip" style="background:#F0F0F0;border-color:#CCC;color:#555">CL-5-936 P1F</span>
+      <span class="ne-chip" style="background:#F0F0F0;border-color:#CCC;color:#555">CL-5-937 P1F</span>
+      <span class="ne-chip" style="background:#F0F0F0;border-color:#CCC;color:#555">CL-5-938 P1F</span>
+      <span class="ne-chip" style="background:#F0F0F0;border-color:#CCC;color:#555">CL-5-939 P1F</span>
+      <span class="ne-chip" style="background:#F0F0F0;border-color:#CCC;color:#555">CL-5-945 P1F</span>
+      <span class="ne-chip" style="background:#F0F0F0;border-color:#CCC;color:#555">CL-5-946 P1F</span>
+      <span class="ne-chip" style="background:#F0F0F0;border-color:#CCC;color:#555">CL-5-947 P1F</span>
+      <span class="ne-chip" style="background:#F0F0F0;border-color:#CCC;color:#555">CL-5-948 P1F</span>
+      <span class="ne-chip" style="background:#F5F0FF;border-color:#C8B8EE;color:#5533AA">CL-5-942 Limbo</span>
+      <span class="ne-chip" style="background:#F5F0FF;border-color:#C8B8EE;color:#5533AA">CL-5-949 Limbo</span>
+    </div>
+    <p class="note">★ = action needed. CL-5-940 (SP 7.16), CL-5-943 (SP 5.08), CL-5-944 (SP 3.81) are P1 winners entering P2 — monitor. CL-5-932 (Limbo, SP 6.75) — highest-priority P2 entry decision. CL-5-942, CL-5-933, CL-5-949 in limbo — all below threshold, no action recommended. All May 29 assets confirmed in SP daily v14.</p>
+  </div>
+
+</div>
+</body>
+</html>
