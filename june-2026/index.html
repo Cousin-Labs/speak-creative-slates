@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Speak · June 2026 Creative Slate</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; background: #F4F4F2; color: #1A1A1A; padding: 40px 24px; }
+  .page { max-width: 900px; margin: 0 auto; }
+  .doc-header { margin-bottom: 32px; }
+  .doc-title { font-size: 13px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: #1B5EDB; margin-bottom: 6px; }
+  .doc-meta { font-size: 12px; color: #888; }
+  .slide { background: #fff; border: 1px solid #E8E8E6; border-radius: 10px; padding: 40px 44px; margin-bottom: 16px; }
+  .tag { font-size: 11px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: #1B5EDB; display: flex; align-items: center; gap: 6px; margin-bottom: 14px; }
+  .tag-dot { width: 8px; height: 8px; background: #1B5EDB; border-radius: 1px; flex-shrink: 0; }
+  .headline { font-size: 22px; font-weight: 500; color: #111; line-height: 1.3; margin-bottom: 10px; }
+  .subhead { font-size: 13px; color: #666; line-height: 1.6; margin-bottom: 24px; }
+  .metrics { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 32px; }
+  .metric { background: #F7F7F5; border-radius: 8px; padding: 14px 16px; }
+  .metric-val { font-size: 26px; font-weight: 500; color: #111; line-height: 1; }
+  .metric-lbl { font-size: 12px; color: #555; margin-top: 4px; }
+  .metric-sub { font-size: 11px; color: #999; margin-top: 2px; }
+  .section-lbl { font-size: 11px; font-weight: 500; color: #888; letter-spacing: .05em; text-transform: uppercase; margin-bottom: 10px; margin-top: 24px; }
+  .mix-bar-wrap { display: flex; height: 28px; border-radius: 4px; overflow: hidden; width: 100%; margin-bottom: 8px; }
+  .mix-seg { height: 100%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 500; color: #fff; }
+  .mix-legend { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
+  .mix-leg-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: #666; }
+  .mix-leg-swatch { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
+  table.ct { width: 100%; border-collapse: collapse; font-size: 12px; }
+  table.ct th { font-size: 11px; font-weight: 500; color: #888; text-align: left; padding: 6px 10px 6px 0; border-bottom: 1px solid #EBEBEB; letter-spacing: .04em; text-transform: uppercase; }
+  table.ct td { padding: 8px 10px 8px 0; border-bottom: 1px solid #EBEBEB; vertical-align: top; color: #1A1A1A; }
+  table.ct tr:last-child td { border-bottom: none; }
+  table.ct tr.sr td { padding: 10px 0 4px; font-size: 10px; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; color: #888; border-bottom: 1px solid #EBEBEB; }
+  .badge { display: inline-block; font-size: 10px; font-weight: 500; padding: 2px 7px; border-radius: 3px; white-space: nowrap; }
+  .b-iter { background: #E8F4E8; color: #1B6B1B; }
+  .b-deriv { background: #E6F0FB; color: #1045A0; }
+  .b-cast { background: #FFF8E0; color: #8A5F00; }
+  .b-recut { background: #F0F0F0; color: #555; }
+  .b-tbd { background: #F5F0FF; color: #5533AA; }
+  .b-p1 { background: #EEF4FF; color: #1B5EDB; }
+  .b-new { background: #FEF0E8; color: #993300; }
+  .cid { font-size: 11px; color: #999; font-family: "SF Mono", "Fira Mono", monospace; }
+  .src { font-size: 11px; color: #666; }
+  .flag-net { font-size: 11px; color: #993300; }
+  .flag-tbd-txt { font-size: 11px; color: #7755CC; }
+  .recut-block { margin-top: 16px; background: #F7F7F5; border-radius: 8px; padding: 14px 16px; }
+  .recut-head { font-size: 11px; font-weight: 500; color: #888; letter-spacing: .04em; text-transform: uppercase; margin-bottom: 10px; }
+  .flags { display: flex; gap: 10px; margin-top: 12px; flex-wrap: wrap; }
+  .flag-card { border: 1px solid #E8E8E6; border-radius: 8px; padding: 14px 16px; flex: 1; min-width: 220px; }
+  .flag-head { font-size: 12px; font-weight: 500; color: #111; margin-bottom: 4px; }
+  .flag-body { font-size: 11px; color: #666; line-height: 1.5; }
+  .bets-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 12px; }
+  .bet-card { border: 1px solid #E8E8E6; border-radius: 8px; padding: 12px 14px; }
+  .bet-label { font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: .06em; color: #999; margin-bottom: 4px; }
+  .bet-title { font-size: 12px; font-weight: 500; color: #111; margin-bottom: 3px; }
+  .bet-body { font-size: 11px; color: #666; line-height: 1.5; }
+  .bet-src { font-size: 10px; color: #aaa; font-family: "SF Mono","Fira Mono",monospace; margin-top: 6px; line-height: 1.5; }
+  hr.div { border: none; border-top: 1px solid #EBEBEB; margin: 20px 0; }
+  .note { font-size: 11px; color: #999; margin-top: 8px; line-height: 1.5; }
+  .callout { background: #FFF8E0; border-left: 3px solid #D4A017; border-radius: 4px; padding: 10px 14px; margin-bottom: 20px; font-size: 12px; color: #5C3D00; line-height: 1.5; }
+  .recap-slide { background: #fff; border: 1px solid #E8E8E6; border-radius: 10px; padding: 40px 44px; margin-bottom: 16px; }
+  .recap-field { border: 1px dashed #DDDDD8; border-radius: 6px; padding: 12px 14px; margin-bottom: 12px; }
+  .recap-field-lbl { font-size: 11px; font-weight: 500; color: #AAA; letter-spacing: .05em; text-transform: uppercase; margin-bottom: 6px; }
+  .recap-field-val { font-size: 13px; color: #CCC; font-style: italic; }
+  .recap-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 20px; }
+  .recap-metric { background: #F7F7F5; border-radius: 8px; padding: 14px 16px; }
+  .recap-metric-val { font-size: 26px; font-weight: 500; color: #DDD; }
+  .recap-metric-lbl { font-size: 12px; color: #AAA; margin-top: 4px; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="doc-header">
+    <div class="doc-title">Speak x Cousin Labs -- Meta Paid</div>
+    <div class="doc-meta">June 2026 creative slate · Internal · Last updated: June 11, 2026</div>
+  </div>
+
+  <!-- SLIDE 1: OVERVIEW -->
+  <div class="slide">
+    <div class="tag"><span class="tag-dot"></span>June 2026 -- Meta paid creative slate</div>
+    <div class="headline">20 concepts across 6 creators, 70%+ within one variable of a proven winner</div>
+    <div class="metrics">
+      <div class="metric"><div class="metric-val">20</div><div class="metric-lbl">New concepts</div><div class="metric-sub">+1 TBD (creator alignment)</div></div>
+      <div class="metric"><div class="metric-val">12</div><div class="metric-lbl">Recut slots</div><div class="metric-sub">June 1 · 8 · 15 · 22</div></div>
+      <div class="metric"><div class="metric-val">6</div><div class="metric-lbl">Active creators</div><div class="metric-sub">Sofi · Aydreon · Ryanne · Gio · Catherine · Gavriel · +Caroline Garcia (TBD)</div></div>
+      <div class="metric"><div class="metric-val">3</div><div class="metric-lbl">Net-new format tests</div><div class="metric-sub">Flagged from perf master</div></div>
+    </div>
+
+    <div class="section-lbl">June allocation vs. target mix</div>
+    <div style="display:flex;justify-content:space-between;font-size:11px;color:#999;margin-bottom:6px"><span>Actual (20 validated concepts)</span><span>Target from June plan</span></div>
+    <div class="mix-bar-wrap">
+      <div class="mix-seg" style="width:55%;background:#1B6B1B">55%</div>
+      <div class="mix-seg" style="width:25%;background:#1045A0">25%</div>
+      <div class="mix-seg" style="width:15%;background:#8A5F00">15%</div>
+      <div class="mix-seg" style="width:5%;background:#bbb;color:#555">5%</div>
+    </div>
+    <div class="mix-bar-wrap" style="opacity:.4">
+      <div class="mix-seg" style="width:30%;background:#1B6B1B">30%</div>
+      <div class="mix-seg" style="width:20%;background:#1045A0">20%</div>
+      <div class="mix-seg" style="width:15%;background:#8A5F00">15%</div>
+      <div class="mix-seg" style="width:35%;background:#993300">35% new bets</div>
+    </div>
+    <div class="mix-legend">
+      <span class="mix-leg-item"><span class="mix-leg-swatch" style="background:#1B6B1B"></span>Iterative</span>
+      <span class="mix-leg-item"><span class="mix-leg-swatch" style="background:#1045A0"></span>Derivative</span>
+      <span class="mix-leg-item"><span class="mix-leg-swatch" style="background:#8A5F00"></span>Casting</span>
+      <span class="mix-leg-item"><span class="mix-leg-swatch" style="background:#993300"></span>New bets (in development)</span>
+      <span class="mix-leg-item"><span class="mix-leg-swatch" style="background:#bbb"></span>TBD</span>
+    </div>
+    <p class="note">Iterative and casting over-indexed vs. target -- reflects P1 Direct expansion and new creator additions. New bet % shifts as concepts are finalized. Recuts excluded from concept mix (efficiency layer, not variance budget).</p>
+
+    <hr class="div">
+    <div class="section-lbl">June creative bets — goal: higher P2 win rate via install-to-trial</div>
+    <p style="font-size:12px;color:#555;line-height:1.6;margin-bottom:14px">Expanding the foundation of high-conviction iterative work while pushing more derivative concepts to build format diversity in channel. ITR is the goal KPI — the bets below are structured to create more at-bats at P2 with higher starting confidence.</p>
+    <ul style="font-size:12px;color:#444;line-height:1.8;padding-left:18px">
+      <li><strong>Embed (P2) format dominates the slate</strong> — majority of iterative concepts run social proof or reaction moments before product reveal, the pattern most correlated with high ITR in existing BAU winners</li>
+      <li><strong>Iterating on proven P2 structures</strong> rather than testing new formats from scratch — Salon Surprise, She Was Shook, Telenovela, Taco Bell all have ITR data to beat; v2.0 tightens the hook and proof sequence</li>
+      <li><strong>Derivative expansion to isolate format vs. creator</strong> — taking formats with one proven winner (Kitchen POV, No-Sabo Classroom) into new scenarios to confirm format is the variable, not the moment</li>
+      <li><strong>New creator casting into proven slots</strong> — Catherine and Gavriel slotted into established concept structures so the only variable is creator fit</li>
+      <li><strong>Recuts as low-cost P2 at-bats</strong> — remixing top BAU assets to test whether combined proof moments outperform individual cuts, no net-new production spend</li>
+      <li><strong>Expanding into P1 Direct as a parallel track</strong> — Speak is intentionally testing more product messaging alongside scenario work; functional hooks, direct outcome framing, and wider entry points (Before &amp; After, expert voice) are the early bets in that direction</li>
+    </ul>
+  </div>
+
+  <!-- SLIDE 2: JUNE DELIVERIES -->
+  <div class="slide">
+    <div class="tag" style="color:#8A5F00"><span class="tag-dot" style="background:#8A5F00"></span>June deliveries -- week of June 5</div>
+    <div class="headline">9 assets delivered and in market -- early Phase 1, no performance reads yet</div>
+    <div class="subhead">All assets delivered the week of June 5. Spend is minimal ($2-$80) -- no performance read yet.</div>
+
+    <table class="ct">
+      <thead>
+        <tr>
+          <th style="width:82px">CL ID</th>
+          <th style="width:78px">Creator</th>
+          <th>Concept</th>
+          <th style="width:58px">Stage</th>
+          <th style="width:52px">Spend</th>
+          <th style="width:44px">ITR</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="cid">CL-6-950</td><td>Sofi</td><td>Word Wall Hybrid + Airport Chisme -- "give me 6 weeks" 23s</td><td><span class="badge b-p1">Phase 1</span></td><td class="src">$3</td><td class="src">--</td></tr>
+        <tr><td class="cid">CL-6-952</td><td>Aydreon</td><td>IRL Product Demo Hybrid + Poolside Dominican Spanish 29s</td><td><span class="badge b-p1">Phase 1</span></td><td class="src">$80</td><td class="src">10%</td></tr>
+        <tr><td class="cid">CL-6-953</td><td>Zig</td><td>Listicle -- Same phrase, different ways (Colombia) 33s</td><td><span class="badge b-p1">Phase 1</span></td><td class="src">$2</td><td class="src">--</td></tr>
+        <tr><td class="cid">CL-6-954</td><td>Zig</td><td>Listicle -- Same phrase, different ways (Mexico) 33s</td><td><span class="badge b-p1">Phase 1</span></td><td class="src">$2</td><td class="src">100%*</td></tr>
+        <tr><td class="cid">CL-6-955</td><td>Zig</td><td>Comment reply listicle hybrid -- same phrase, different dialect 26s</td><td><span class="badge b-p1">Phase 1</span></td><td class="src">$3</td><td class="src">--</td></tr>
+        <tr><td class="cid">CL-6-956</td><td>Zig</td><td>Word Wall -- if I had to learn from scratch (loop) 16s</td><td><span class="badge b-p1">Phase 1</span></td><td class="src">$19</td><td class="src">0%</td></tr>
+        <tr><td class="cid">CL-6-957</td><td>Zig</td><td>Word Wall -- best ways to learn Spanish in 7 days 14s</td><td><span class="badge b-p1">Phase 1</span></td><td class="src">$46</td><td class="src">0%</td></tr>
+        <tr><td class="cid">CL-6-958</td><td>Tara</td><td>Word Wall + Travel Montage -- give me 6 weeks 15s</td><td><span class="badge b-p1">Phase 1</span></td><td class="src">$7</td><td class="src">--</td></tr>
+        <tr><td class="cid">CL-6-959</td><td>Aydreon</td><td>App Demo Testimonial -- the cheat code to fluency 38s</td><td><span class="badge b-p1">Phase 1</span></td><td class="src">$53</td><td class="src">0%</td></tr>
+      </tbody>
+    </table>
+    <p class="note">* CL-6-954 ITR 100% is from 1 install to 1 trial at $2 spend -- statistically meaningless. Hold for real read at $300+ spend.</p>
+  </div>
+
+  <!-- SLIDE 3: CONCEPT ROSTER -->
+  <div class="slide">
+    <div class="tag"><span class="tag-dot"></span>Concept roster -- June 8 + June 15 blocks</div>
+    <div class="headline">Iterative and derivative concepts anchored to top BAU assets</div>
+
+    <table class="ct">
+      <thead>
+        <tr>
+          <th style="width:72px">B-ID</th>
+          <th style="width:78px">Creator</th>
+          <th>Concept</th>
+          <th style="width:76px">Type</th>
+          <th style="width:82px">Product pattern</th>
+          <th>Question we're answering</th>
+          <th style="width:118px">Source proof</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="sr"><td colspan="6">Iterative -- proven creator x proven format x new scenario</td></tr>
+        <tr><td class="cid">B-0608-01</td><td>Sofi</td><td>Salon Surprise Convo 2.0</td><td><span class="badge b-iter">Iterative</span></td><td class="src">Embed (P2)</td><td class="src">Does the social-proof mechanic hold outside the Uber captive-audience context?</td><td class="cid">CL-5-880, CL-5-795</td></tr>
+        <tr><td class="cid">B-0608-02</td><td>Sofi</td><td>She Was Shook Convo 2.0</td><td><span class="badge b-iter">Iterative</span></td><td class="src">Embed (P2)</td><td class="src">Does removing captive-audience setting strengthen or reduce shook credibility?</td><td class="cid">CL-1-075, CL-5-795</td></tr>
+        <tr><td class="cid">B-0608-03</td><td>Sofi</td><td>Car Hook -- New Scenario [Modular]</td><td><span class="badge b-iter">Iterative</span></td><td class="src">Direct (P1)</td><td class="src">Does the car DTC opener function independent of the nail salon format?</td><td class="cid">CL-5-880, CL-1-115</td></tr>
+        <tr><td class="cid">B-0608-04</td><td>Sofi</td><td>Taco Bell Surprise Convo 2.0</td><td><span class="badge b-iter">Iterative</span></td><td class="src">Embed (P2)</td><td class="src">Does a brand-specific setting add a comedic layer without hurting CTI?</td><td class="cid">CL-5-880, CL-5-795</td></tr>
+        <tr><td class="cid">B-0608-05</td><td>Sofi</td><td>Telenovela Reaction 2.0</td><td><span class="badge b-iter">Iterative</span></td><td class="src">Embed (P2)</td><td class="src">Does a culturally specific trigger outperform social-gossip in the chisme format?</td><td class="cid">CL-3-718, CL-3-719</td></tr>
+        <tr><td class="cid">B-0608-06</td><td>Aydreon</td><td>Shirtless IRL 2.0</td><td><span class="badge b-iter">Iterative</span></td><td class="src">Embed (P2)</td><td class="src">Does beach/gym setting outperform DR poolside for US audiences?</td><td class="cid">CL-5-811, CL-10-479</td></tr>
+        <tr><td class="cid">B-0608-07</td><td>Ryanne</td><td>Before & After + Validation Window 2.0</td><td><span class="badge b-iter">Iterative</span></td><td class="src">Embed (P2)</td><td class="src">Does earned proof outperform a feature list for the transformation close?</td><td class="cid">CL-5-794</td></tr>
+        <tr><td class="cid">B-0608-08</td><td>Gavriel</td><td>Shocking My Uber Driver</td><td><span class="badge b-iter">Iterative</span></td><td class="src">Embed (P2)</td><td class="src">Is the asks-permission mechanic format-portable to a male, non-POC creator?</td><td class="flag-net">Net-new creator. Format + setting proof: CL-10-479 ($247k BAU)</td></tr>
+        <tr><td class="cid">B-0622-01</td><td>Ryanne</td><td>Direct-to-Camera Method Hook — How to Lock In</td><td><span class="badge b-iter">Iterative</span></td><td class="src">Direct (P1)</td><td class="src">Does conviction-led method messaging ("you have to be speaking") drive ITR where scenario-led P2 proof doesn't reach?</td><td class="cid">CL-5-794, CL-5-789, CL-5-790</td></tr>
+        <tr><td class="cid">B-0622-02</td><td>Aydreon</td><td>Normalizing Spanish — Speaking About Speaking</td><td><span class="badge b-iter">Iterative</span></td><td class="src">Direct (P1)</td><td class="src">Does Aydreon's cultural normalization angle open a wider audience entry than his proven IRL surprise format?</td><td class="cid">CL-10-479, CL-10-082</td></tr>
+        <tr><td class="cid">B-0622-03</td><td>Sofi</td><td>Save 6 Months — Dramatic Speak Method Demo</td><td><span class="badge b-iter">Iterative</span></td><td class="src">Direct (P1)</td><td class="src">Does a time-savings + dramatic method demo outperform Sofi's proven P2 social proof hooks on ITR?</td><td class="cid">CL-1-075, CL-3-718, CL-5-795</td></tr>
+        <tr class="sr"><td colspan="6">Derivative -- proven creator x new format x proven scenario</td></tr>
+        <tr><td class="cid">B-0608-09</td><td>Aydreon</td><td>Kitchen POV Remake 2.0</td><td><span class="badge b-deriv">Derivative</span></td><td class="src">Direct (P1)</td><td class="src">Does Aydreon's learner credibility transfer to a product-first format?</td><td class="cid">CL-10-082 ($38k BAU)</td></tr>
+        <tr><td class="cid">B-0608-10</td><td>Gio</td><td>No-Sabo Out of Classroom 2.0</td><td><span class="badge b-deriv">Derivative</span></td><td class="src">Direct (P1)</td><td class="src">Does IRL walk-and-talk increase authenticity vs. classroom authority register?</td><td class="cid">CL-4-759 ($48k BAU)</td></tr>
+        <tr><td class="cid">B-0608-11</td><td>Sofi</td><td>Speak vs Duolingo Tone Test [Trend]</td><td><span class="badge b-deriv">Derivative</span></td><td class="src">Direct (P1)</td><td class="src">Does competitive messaging convert when format is platform-native vs. explainer?</td><td class="flag-net">Net-new format for Sofi. Scenario proof: CL-10-472/473 ($31k BAU)</td></tr>
+        <tr><td class="cid">B-0615-01</td><td>Ryanne</td><td>El Rastro Walk and Talk</td><td><span class="badge b-deriv">Derivative</span></td><td class="src">Embed (P2)</td><td class="src">Is the IRL practice format creator-portable and market-portable simultaneously?</td><td class="cid">CL-5-789, CL-5-790</td></tr>
+        <tr><td class="cid">B-0615-02</td><td>Ryanne</td><td>Overheard Chisme -- Heritage Bestie Edition</td><td><span class="badge b-tbd">TBD</span></td><td class="src">Embed (P2)</td><td class="src">Does code-switch proof land stronger with a heritage speaker as witness?</td><td class="flag-tbd-txt">Creator alignment pending</td></tr>
+        <tr><td class="cid">B-0622-04</td><td>Ryanne</td><td>Before &amp; After — Play Out the Scene</td><td><span class="badge b-deriv">Derivative</span></td><td class="src">Embed (P2)</td><td class="src">Does dramatizing the B&A scenario outperform the greenscreen overlay on the same proof structure?</td><td class="cid">CL-5-794, CL-5-789, CL-5-790</td></tr>
+        <tr class="sr"><td colspan="6">Casting -- new creator x proven format x proven scenario</td></tr>
+        <tr><td class="cid">B-0615-03</td><td>Catherine</td><td>From Basic to Fluent 2.0</td><td><span class="badge b-cast">Casting</span></td><td class="src">Direct (P1)</td><td class="src">Does Ryanne's B&amp;A format convert for an Asian creator targeting US Spanish learners?</td><td class="cid">CL-5-794 (Ryanne BAU)</td></tr>
+        <tr><td class="cid">B-0615-04</td><td>Catherine</td><td>Car Hook -- New Scenario [Modular]</td><td><span class="badge b-cast">Casting</span></td><td class="src">Direct (P1)</td><td class="src">Is the car DTC opener creator-portable beyond Sofi?</td><td class="cid">CL-5-880, CL-5-894</td></tr>
+        <tr><td class="cid">B-0622-05</td><td>Caroline Garcia</td><td>Abuela Bit — Relational Immersion Entry Point</td><td><span class="badge b-cast">Casting</span></td><td class="src">Embed (P2)</td><td class="src">Does a non-heritage, married-in learner open an audience entry point current creators can't reach?</td><td class="flag-tbd-txt">Net-new creator — avails &amp; rates TBD</td></tr>
+      </tbody>
+    </table>
+
+    <div class="recut-block">
+      <div class="recut-head">Recut program -- June 1 (3 specific) + 9 TBD slots across June 8, 15, 22 · Edit-only, no new shoot</div>
+      <table class="ct" style="margin:0">
+        <tbody>
+          <tr class="sr"><td colspan="5">June 1 -- 3 specific recuts</td></tr>
+          <tr><td class="cid" style="width:80px">R-0601-01</td><td style="width:78px">Aydreon</td><td>Poolside to Proof Mashup (CL-5-811 + CL-5-904)</td><td><span class="badge b-recut">Recut</span></td><td><span class="badge b-p1">Phase 1</span></td><td class="src">Does poolside IRL proof + car reflection hold ITR from both P2 wins in one cut?</td></tr>
+          <tr><td class="cid">R-0601-02</td><td>TBD</td><td>Word Wall to Chisme (CL-5-902 + CL-3-718)</td><td><span class="badge b-recut">Recut</span></td><td><span class="badge b-p1">Phase 1</span></td><td class="src">Does word wall intent hook + chisme emotional proof outperform either standalone?</td></tr>
+          <tr><td class="cid">R-0601-03</td><td>TBD</td><td>Word Wall to Airport (CL-5-902 + CL-5-899)</td><td><span class="badge b-recut">Recut</span></td><td><span class="badge b-p1">Phase 1</span></td><td class="src">Does word wall hook give failed P1 airport footage a different job?</td></tr>
+          <tr class="sr"><td colspan="5">June 8, 15, 22 -- 9 slots TBD (3 per week)</td></tr>
+          <tr><td class="cid">R-0608-01/02/03</td><td>TBD</td><td>3 slots TBD -- June 8</td><td><span class="badge b-recut">Recut</span></td><td><span class="badge b-tbd" style="background:#F5F0FF;color:#5533AA">P1 TBD</span></td><td class="src">Brett assigns source assets based on current BAU performance data</td></tr>
+          <tr><td class="cid">R-0615-01/02/03</td><td>TBD</td><td>3 slots TBD -- June 15</td><td><span class="badge b-recut">Recut</span></td><td><span class="badge b-tbd" style="background:#F5F0FF;color:#5533AA">P1 TBD</span></td><td class="src">Brett assigns source assets based on current BAU performance data</td></tr>
+          <tr><td class="cid">R-0622-01/02/03</td><td>TBD</td><td>3 slots TBD -- June 22</td><td><span class="badge b-recut">Recut</span></td><td><span class="badge b-tbd" style="background:#F5F0FF;color:#5533AA">P1 TBD</span></td><td class="src">Brett assigns source assets based on current BAU performance data</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- SLIDE 4: NEW BETS -->
+  <div class="slide">
+    <div class="tag"><span class="tag-dot"></span>New concept bets -- ~20% of June slate · Actively in development</div>
+    <div class="headline">7 concepts in development -- being briefed this week</div>
+    <div class="subhead">Organic-to-Spark concepts held for dedicated Spark roadmap workstream. Spark perf master outstanding. Channel assignment (paid vs. organic) happens at the brief stage.</div>
+
+    <table class="ct">
+      <thead>
+        <tr>
+          <th style="width:52px">ID</th>
+          <th style="width:56px">Creator</th>
+          <th>Concept</th>
+          <th style="width:76px">Type</th>
+          <th style="width:82px">Product pattern</th>
+          <th>Question</th>
+          <th style="width:118px">Source proof</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="sr"><td colspan="6">New bets -- format and scenario exploration</td></tr>
+        <tr><td class="cid">P-01</td><td class="src">TBD</td><td>Fear / desire hook mechanic</td><td><span class="badge b-new">New Bet</span></td><td class="src">TBD</td><td class="src">Is there a conversion layer that fear/desire hooks reach that demonstration and social proof don't?</td><td class="cid">CL-2-223 (Sofi BAU, ITR 33%), CL-2-211 (Madison BAU, ITR 28%)</td></tr>
+        <tr><td class="cid">P-02</td><td class="src">TBD</td><td>Creator conviction / direct opinion close</td><td><span class="badge b-new">New Bet</span></td><td class="src">TBD</td><td class="src">Does personal conviction close outperform social proof and demonstration closes?</td><td class="cid">CL-10-082 (Aydreon POV BAU $38k), CL-2-211 (testimonial BAU)</td></tr>
+        <tr><td class="cid">P-03</td><td class="src">TBD</td><td>Education / explainer format</td><td><span class="badge b-new">New Bet</span></td><td class="src">TBD</td><td class="src">Does a structured curriculum-style breakdown drive higher CTI from cold audiences than current demonstration formats?</td><td class="cid">CL-4-759 (Gio BAU P2, $48k, ITR 24%), CL-3-655 (Mariya BAU P2, ITR 36%)</td></tr>
+        <tr><td class="cid">P-04</td><td class="src">TBD</td><td>Heritage credentialing in new setting</td><td><span class="badge b-new">New Bet</span></td><td class="src">TBD</td><td class="src">Does heritage credentialing convert outside the home / chisme context?</td><td class="cid">CL-3-718 (Sofi BAU P2, $19.9k, ITR 28%), CL-1-075 (Sofi BAU, $26.5k, ITR 31%)</td></tr>
+        <tr><td class="cid">P-05</td><td class="src">TBD</td><td>Cultural affinity angle (non-heritage framing)</td><td><span class="badge b-new">New Bet</span></td><td class="src">TBD</td><td class="src">Does a cultural affinity narrative (community / career, not family) convert a distinct segment from heritage return?</td><td class="cid">CL-10-472 (Aydreon BAU, $18.4k, Duolingo comparison), CL-10-473 (BAU $12.9k)</td></tr>
+        <tr class="sr"><td colspan="6">Experimental -- proven creator x new format x new scenario</td></tr>
+        </tbody>
+    </table>
+
+    <hr class="div">
+    <div class="section-lbl">Flags -- concepts requiring attention</div>
+    <div class="flags">
+      <div class="flag-card">
+        <div class="flag-head">Net-new creator -- B-0608-08 Gavriel</div>
+        <div class="flag-body">No Gavriel assets in the performance master. Other Gavriel concepts paused -- unproven creator + unproven concepts is too many variables at once. Shocking My Uber Driver proceeds only because the Uber setting and asks-permission mechanic are proven by CL-10-479 ($247k BAU, Aydreon). One concept, one unknown.</div>
+      </div>
+      <div class="flag-card">
+        <div class="flag-head">Net-new format for Sofi -- B-0608-11</div>
+        <div class="flag-body">Side-by-side comparison format has never run for Sofi. Duolingo competitive scenario proven by Aydreon (CL-10-472/473, $31k combined BAU) -- no Sofi data in this format.</div>
+      </div>
+      <div class="flag-card">
+        <div class="flag-head">Creator alignment pending -- B-0615-02</div>
+        <div class="flag-body">Ryanne pushing back on the overheard skit format. TBD while producer works through alignment. Chisme scenario proven (CL-3-718). Accidental-capture format would be net-new for Ryanne.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 5: MONTH-END RECAP -->
+  <div class="recap-slide">
+    <div class="tag" style="color:#999"><span class="tag-dot" style="background:#ccc"></span>Month-end recap -- fill in at close of June</div>
+    <div class="headline" style="color:#AAA">Results -- update at end of June</div>
+
+    <div class="recap-grid">
+      <div class="recap-metric"><div class="recap-metric-val">--</div><div class="recap-metric-lbl">Concepts delivered</div></div>
+      <div class="recap-metric"><div class="recap-metric-val">--</div><div class="recap-metric-lbl">P1 wins (ITR threshold met)</div></div>
+      <div class="recap-metric"><div class="recap-metric-val">--</div><div class="recap-metric-lbl">P2 graduates</div></div>
+    </div>
+
+    <div class="recap-field"><div class="recap-field-lbl">June 5 week deliveries (CL-6-950 through CL-6-959)</div><div class="recap-field-val">Fill in: performance reads once spend reaches $300+ per asset</div></div>
+    <div class="recap-field"><div class="recap-field-lbl">Iterative results (B-0608-01 through B-0608-08)</div><div class="recap-field-val">Fill in: which concepts hit P1 / P2, which were killed, key learning per concept</div></div>
+    <div class="recap-field"><div class="recap-field-lbl">Derivative results (B-0608-09 through B-0615-02)</div><div class="recap-field-val">Fill in: which new formats converted, what the format data showed</div></div>
+    <div class="recap-field"><div class="recap-field-lbl">Casting results (B-0615-03 and B-0615-04)</div><div class="recap-field-val">Fill in: Catherine performance vs. Ryanne baseline on same format</div></div>
+    <div class="recap-field"><div class="recap-field-lbl">Recut program results (R-0601-01 through R-0601-03 + 6 TBD)</div><div class="recap-field-val">Fill in: which mashups / hook swaps worked, ITR vs. source assets</div></div>
+    <div class="recap-field"><div class="recap-field-lbl">New concept bets (P-01 through P-05, P-08)</div><div class="recap-field-val">Fill in: concepts finalized, assigned, delivered -- early data if available</div></div>
+    <div class="recap-field"><div class="recap-field-lbl">Flags resolved</div><div class="recap-field-val">Gavriel (B-0608-08) result · Ryanne Overheard (B-0615-02) status · Sofi Duolingo format read (B-0608-11)</div></div>
+    <div class="recap-field"><div class="recap-field-lbl">Learnings -- July carryover</div><div class="recap-field-val">Fill in: what goes into the July brief block, what gets killed, new hypotheses from the data</div></div>
+  </div>
+
+</div>
+</body>
+</html>
